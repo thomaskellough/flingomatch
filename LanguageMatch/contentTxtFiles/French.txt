@@ -1,0 +1,61 @@
+please: s'il vous plaît
+thank you: merci
+you're welcome: de rien
+how are you: comment allez-vous
+hello: bonjour
+goodbye: au revoir
+good: bien
+morning: matin
+afternoon: après midi
+night: nuit
+bathroom: salle de bains
+restroom: salle de repos
+sorry: pardon
+excuse me: excusez moi
+name: prénom
+where: où
+I: je
+understand: comprendre
+one: un
+two: deux
+three: trois
+four: quatre
+five: cinq
+six (en): six (fr)
+seven: sept
+eight: huit
+nine: neuf
+ten: dix
+airplane: avion
+train (en): train (fr)
+taxi (en): taxi (fr)
+bus (en): bus (fr)
+subway: métro
+how much: combien
+restaurant (en): restaurant (fr)
+hotel: un hôtel
+speak: parle
+english: anglais
+menu (en): menu (fr)
+help: aidez-moi
+boy: garçon
+girl: fille
+man: homme
+woman: femme
+cat: chat
+dog: chien
+phone: téléphone
+cheese: fromage
+beef: du boeuf
+chicken: poulet
+fish: poisson
+vegetarian: végétarien
+breakfast: petit déjeuner
+lunch: le déjeuner
+dinner: dîner
+tomorrow: demain
+today: aujourd'hui
+yesterday: hier
+food: aliments
+drink: boisson
+water: eau
