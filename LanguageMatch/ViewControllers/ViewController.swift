@@ -19,7 +19,6 @@ extension UIView {
 var globalDevice = "iphone"
 var globalFont = "ChalkboardSE-Regular"
 var globalFontSize = CGFloat(32)
-var globalHardMode = false
 var globalPairs = [Pair]()
 var globalScreenWidth = CGFloat(375)
 var globalWordsEnglish = [String]()
@@ -34,12 +33,13 @@ class ViewController: UIViewController {
     var studyBtn: UIButton!
     var settingsBtn: UIButton!
     var currentLanguage: Language!
+    var hardMode: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         let defaults = UserDefaults.standard
-        globalHardMode = defaults.bool(forKey: "switchState")
+        hardMode = defaults.bool(forKey: "switchState")
         let defaultLanguage = defaults.object(forKey: "language") as? String ?? "French"
         currentLanguage = Language(name: defaultLanguage)
         updateCurrentLanguage(language: currentLanguage.name)

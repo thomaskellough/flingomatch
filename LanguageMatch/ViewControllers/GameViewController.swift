@@ -235,7 +235,8 @@ class GameViewController: UIViewController {
                 wordButton.titleLabel?.font = UIFont.systemFont(ofSize: globalFontSize)
                 wordButton.titleLabel?.numberOfLines = 1
                 wordButton.titleLabel?.sizeToFit()
-                if globalHardMode {
+                
+                if delegate.hardMode! {
                     wordButton.setBackgroundImage(imageIcon, for: .normal)
                 } else {
                     if globalWordsEnglish.contains(randomWords[wordButton.tag - 1]) {
@@ -244,7 +245,7 @@ class GameViewController: UIViewController {
                         wordButton.setBackgroundImage(imageFlagIcon2, for: .normal)
                     }
                 }
-//                 wordButton.setTitle(randomWords[wordButton.tag - 1], for: .normal) // uncomment to view words without flipping
+//                 wordButton.setTitle(randomWords[wordButton.tag - 1], for: .normal) // uncomment to view words without flipping - testing purposes
                 
                 wordButton.clipsToBounds = true
                 wordButton.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
@@ -311,7 +312,7 @@ class GameViewController: UIViewController {
         button.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromBottom]
         UIView.transition(with: button, duration: 1.0, options: transitionOptions, animations: {
-            if globalHardMode {
+            if self.delegate.hardMode! {
                 button.setBackgroundImage(self.imageIcon, for: .normal)
             } else {
                 if globalWordsEnglish.contains(self.randomWords[button.tag - 1]) {

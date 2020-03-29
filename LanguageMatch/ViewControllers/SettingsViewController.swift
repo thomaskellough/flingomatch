@@ -67,11 +67,14 @@ class SettingsViewController: UITableViewController {
     @objc func switchChanged(_ sender: UISwitch!) {
         UserDefaults.standard.set(sender.isOn, forKey: "switchState")
         if sender.isOn {
-            globalHardMode = true
+            UserDefaults.standard.set(true, forKey: "switchState")
         } else {
-            globalHardMode = false
+            UserDefaults.standard.set(false, forKey: "switchState")
         }
         
+        let ac = UIAlertController(title: "Settings changed", message: "You must restart Flingo Match in order for the settings to take effect.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     func save(language: String) {
