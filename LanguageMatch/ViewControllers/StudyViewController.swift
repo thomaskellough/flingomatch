@@ -26,7 +26,8 @@ class StudyViewController: UICollectionViewController {
     
     func loadWordsToList() {
         words.removeAll()
-        for pair in globalPairs {
+        guard let pairs = delegate.currentLanguage.pairs else { return }
+        for pair in pairs {
             guard let wordOne = pair.wordOne else { return }
             guard let wordTwo = pair.wordTwo else { return }
             words.append(wordOne)

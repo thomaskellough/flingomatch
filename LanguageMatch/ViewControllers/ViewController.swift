@@ -19,10 +19,7 @@ extension UIView {
 var globalDevice = "iphone"
 var globalFont = "ChalkboardSE-Regular"
 var globalFontSize = CGFloat(32)
-var globalPairs = [Pair]()
 var globalScreenWidth = CGFloat(375)
-var globalWordsEnglish = [String]()
-var globalWordsForeign = [String]()
 
 class ViewController: UIViewController {
     
@@ -85,7 +82,7 @@ class ViewController: UIViewController {
         settingsBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         settingsBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         
-        loadWords()
+//        loadWords()
     }
     
     func configureToDevice() {
@@ -271,30 +268,6 @@ class ViewController: UIViewController {
         settingsBtn.titleLabel?.layer.shadowOpacity = 0.8
         settingsBtn.titleLabel?.layer.shadowRadius = 5
         view.addSubview(settingsBtn)
-        
-        loadWords()
-    }
-    
-    func loadWords() {
-        globalPairs.removeAll()
-        globalWordsEnglish.removeAll()
-        globalWordsForeign.removeAll()
-        if let wordFileURL = Bundle.main.url(forResource: currentLanguage.name, withExtension: "txt") {
-            if let wordContents = try? String(contentsOf: wordFileURL) {
-                let lines = wordContents.components(separatedBy: "\n")
-                
-                for line in lines {
-                    let parts = line.components(separatedBy: ": ")
-                    let wordOne = parts[0]
-                    let wordTwo = parts[1]
-                    
-                    let pair = Pair(wordOne: wordOne, wordTwo: wordTwo)
-                    globalPairs.append(pair)
-                    globalWordsEnglish.append(wordOne)
-                    globalWordsForeign.append(wordTwo)
-                }
-            }
-        }
     }
     
     @objc func selectLanguage() {

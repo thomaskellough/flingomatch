@@ -11,8 +11,6 @@ import UIKit
 class GameViewController: UIViewController {
     
     var compareDict = [String: String]()
-    var hiddenView1: UIView?
-    var hiddenView2: UIView?
     var imageIcon: UIImage!
     var imageFlagIcon1: UIImage!
     var imageFlagIcon2: UIImage!
@@ -167,23 +165,10 @@ class GameViewController: UIViewController {
     }
     
     func loadImages(language: String) {
-        // When adding support for a new language you must also update Flags.swift, SettingsViewController and ViewController
-        let vc = Flags()
+        let iconString = "icon\(delegate.currentLanguage.name)"
         imageFlagIcon1 = UIImage(named: "iconAmerica")
-        switch language {
-        case "French":
-            imageIcon = UIImage(named: "iconFrench")
-            imageFlagIcon2 = vc.drawFrenchFlag()
-        case "Spanish":
-            imageIcon = UIImage(named: "iconSpanish")
-            imageFlagIcon2 = vc.drawSpanishFlag()
-        case "Italian":
-            imageIcon = UIImage(named: "iconItalian")
-            imageFlagIcon2 = vc.drawItalianFlag()
-        default:
-            imageIcon = UIImage(named: "iconAmerica")
-        }
-        
+        imageFlagIcon2 = delegate.currentLanguage.flag
+        imageIcon = UIImage(named: iconString)
     }
     
     // Function all play modes share
@@ -193,6 +178,9 @@ class GameViewController: UIViewController {
         loadImages(language: delegate.currentLanguage.name)
         setsWon = 0
         randomWords = randomSets()
+        assert(!randomWords.isEmpty, "Error: Random words are empty. Please check randomSets function to determine reason for early return.")
+        guard let englishWords = delegate.currentLanguage.englishWords else { return }
+        assert(englishWords.count > 9, "Error: Could only load \(englishWords.count) english words when we need at least 9.")
         var count = 0
         
         let labelWidth = Int(view.bounds.size.width)
@@ -235,11 +223,10 @@ class GameViewController: UIViewController {
                 wordButton.titleLabel?.font = UIFont.systemFont(ofSize: globalFontSize)
                 wordButton.titleLabel?.numberOfLines = 1
                 wordButton.titleLabel?.sizeToFit()
-                
                 if delegate.hardMode! {
                     wordButton.setBackgroundImage(imageIcon, for: .normal)
                 } else {
-                    if globalWordsEnglish.contains(randomWords[wordButton.tag - 1]) {
+                    if englishWords.contains(randomWords[wordButton.tag - 1]) {
                         wordButton.setBackgroundImage(imageFlagIcon1, for: .normal)
                     } else {
                         wordButton.setBackgroundImage(imageFlagIcon2, for: .normal)
@@ -274,14 +261,16 @@ class GameViewController: UIViewController {
     }
     
     func randomSets() -> [String] {
+        guard var pairs = delegate.currentLanguage.pairs else { return [] }
         var randomPairs = [Pair]()
         var randomWords = [String]()
         
-        globalPairs.shuffle()
+        pairs.shuffle()
         for i in 0 ..< 9 {
-            randomPairs.append(globalPairs[i])
+            randomPairs.append((pairs[i]))
+ 
         }
-        
+        assert(randomPairs.count == 9, "Error: Pairs was a total of \(String(describing: randomPairs.count)) when it should have been 9.")
         for randomPair in randomPairs {
             word1 = randomPair.wordOne
             word2 = randomPair.wordTwo
@@ -307,6 +296,7 @@ class GameViewController: UIViewController {
     }
     
     func flipBack(_ button: UIButton) {
+        guard let englishWords = delegate.currentLanguage.englishWords else { return }
         button.backgroundColor = delegate.currentLanguage.colorPrimary
         button.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
         button.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
@@ -315,7 +305,7 @@ class GameViewController: UIViewController {
             if self.delegate.hardMode! {
                 button.setBackgroundImage(self.imageIcon, for: .normal)
             } else {
-                if globalWordsEnglish.contains(self.randomWords[button.tag - 1]) {
+                if englishWords.contains(self.randomWords[button.tag - 1]) {
                     button.setBackgroundImage(self.imageFlagIcon1, for: .normal)
                 } else {
                     button.setBackgroundImage(self.imageFlagIcon2, for: .normal)
@@ -334,46 +324,7 @@ class GameViewController: UIViewController {
     }
     
     func revealCard(_ button: UIButton, tag: Int) {
-        switch tag {
-        case 1:
-            flip(button, tag)
-        case 2:
-            flip(button, tag)
-        case 3:
-            flip(button, tag)
-        case 4:
-            flip(button, tag)
-        case 5:
-            flip(button, tag)
-        case 6:
-            flip(button, tag)
-        case 7:
-            flip(button, tag)
-        case 8:
-            flip(button, tag)
-        case 9:
-            flip(button, tag)
-        case 10:
-            flip(button, tag)
-        case 11:
-            flip(button, tag)
-        case 12:
-            flip(button, tag)
-        case 13:
-            flip(button, tag)
-        case 14:
-            flip(button, tag)
-        case 15:
-            flip(button, tag)
-        case 16:
-            flip(button, tag)
-        case 17:
-            flip(button, tag)
-        case 18:
-            flip(button, tag)
-        default:
-            break
-        }
+        flip(button, tag)
         numberTapped += 1
         
         if numberTapped == 1 {

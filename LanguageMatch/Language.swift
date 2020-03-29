@@ -54,12 +54,15 @@ struct Language {
     var colorPrimary: UIColor?
     var colorSecondary: UIColor?
     var colorTertiary: UIColor?
+    var englishWords: [String]?
+    var pairs: [Pair]?
     
     init(name: String) {
         self.name = name
         self.flag = Flags().renderFlag(language: name)
         
         self.setColors(name: name)
+        loadWords()
     }
     
     mutating func setColors(name: String) {
@@ -82,5 +85,25 @@ struct Language {
             self.colorTertiary = UIColor.white
         }
     }
+    
+    mutating func loadWords() {
+        englishWords = []
+        pairs = [Pair]()
+        
+        if let wordFileURL = Bundle.main.url(forResource: self.name, withExtension: "txt") {
+            if let wordContents = try? String(contentsOf: wordFileURL) {
+                let lines = wordContents.components(separatedBy: "\n")
+                
+                for line in lines {
+                    let parts = line.components(separatedBy: ": ")
+                    let wordOne = parts[0]
+                    let wordTwo = parts[1]
+                    englishWords?.append(wordOne)
+                    
+                    let pair = Pair(wordOne: wordOne, wordTwo: wordTwo)
+                    pairs?.append(pair)
+                }
+            }
+        }
+    }
 }
-
