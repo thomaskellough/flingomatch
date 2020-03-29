@@ -20,7 +20,6 @@ var globalDevice = "iphone"
 var globalFont = "ChalkboardSE-Regular"
 var globalFontSize = CGFloat(32)
 var globalHardMode = false
-var globalLanguages = ["French", "Spanish", "Italian"]
 var globalPairs = [Pair]()
 var globalScreenWidth = CGFloat(375)
 var globalWordsEnglish = [String]()
@@ -38,7 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let defaults = UserDefaults.standard
         globalHardMode = defaults.bool(forKey: "switchState")
         let defaultLanguage = defaults.object(forKey: "language") as? String ?? "French"

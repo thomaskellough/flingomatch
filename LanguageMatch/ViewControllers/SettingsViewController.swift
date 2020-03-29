@@ -102,23 +102,17 @@ class SettingsViewController: UITableViewController {
     }
     
     func defaultLanguagesTapped() {
-        // When adding support for a new language you must also update Flags.swift, GameViewController and ViewController
+        let vc = LanguageSelectViewController()
+        let languages = vc.getLanguages()
+        
         let ac = UIAlertController(title: "Pick a language", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "French", style: .default, handler: { [weak self] _ in
-            self?.delegate.updateCurrentLanguage(language: "French")
-            self?.save(language: "French")
-            self?.tableView.reloadData()
-        }))
-        ac.addAction(UIAlertAction(title: "Spanish", style: .default, handler: { [weak self] _ in
-            self?.delegate.updateCurrentLanguage(language: "Spanish")
-            self?.save(language: "Spanish")
-            self?.tableView.reloadData()
-        }))
-        ac.addAction(UIAlertAction(title: "Italian", style: .default, handler: { [weak self] _ in
-            self?.delegate.updateCurrentLanguage(language: "Italian")
-            self?.save(language: "Italian")
-            self?.tableView.reloadData()
-        }))
+        for language in languages {
+            ac.addAction(UIAlertAction(title: language, style: .default, handler: { [unowned self] _ in
+                self.delegate.updateCurrentLanguage(language: language)
+                self.save(language: language)
+                self.tableView.reloadData()
+            }))
+        }
         ac.addActionSheetForiPad(actionSheet: ac)
         present(ac, animated: true)
     }
