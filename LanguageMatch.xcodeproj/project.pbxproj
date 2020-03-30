@@ -33,7 +33,18 @@
 		24EFDD9E242FA76300C6DC14 /* Italian.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24EFDD9D242FA76300C6DC14 /* Italian.txt */; };
 		24EFDDA0242FA77000C6DC14 /* Spanish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24EFDD9F242FA77000C6DC14 /* Spanish.txt */; };
 		24EFDDA5242FAA7B00C6DC14 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFDDA4242FAA7B00C6DC14 /* Language.swift */; };
+		24EFDDBA2431822700C6DC14 /* LanguageMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFDDAE24317EC800C6DC14 /* LanguageMatchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24EFDDB124317EC900C6DC14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24AD899222F4C75400A1C1B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24AD899922F4C75500A1C1B7;
+			remoteInfo = LanguageMatch;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,10 +75,20 @@
 		24EFDD9D242FA76300C6DC14 /* Italian.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Italian.txt; sourceTree = "<group>"; };
 		24EFDD9F242FA77000C6DC14 /* Spanish.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Spanish.txt; sourceTree = "<group>"; };
 		24EFDDA4242FAA7B00C6DC14 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanguageMatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24EFDDAE24317EC800C6DC14 /* LanguageMatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMatchTests.swift; sourceTree = "<group>"; };
+		24EFDDB024317EC900C6DC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		24AD899722F4C75500A1C1B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24EFDDA924317EC800C6DC14 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				24AD899C22F4C75500A1C1B7 /* LanguageMatch */,
+				24EFDDAD24317EC800C6DC14 /* LanguageMatchTests */,
 				24AD899B22F4C75500A1C1B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */,
+				24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +166,15 @@
 			path = contentTxtFiles;
 			sourceTree = "<group>";
 		};
+		24EFDDAD24317EC800C6DC14 /* LanguageMatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				24EFDDAE24317EC800C6DC14 /* LanguageMatchTests.swift */,
+				24EFDDB024317EC900C6DC14 /* Info.plist */,
+			);
+			path = LanguageMatchTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,18 +195,40 @@
 			productReference = 24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		24EFDDAB24317EC800C6DC14 /* LanguageMatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24EFDDB524317EC900C6DC14 /* Build configuration list for PBXNativeTarget "LanguageMatchTests" */;
+			buildPhases = (
+				24EFDDA824317EC800C6DC14 /* Sources */,
+				24EFDDA924317EC800C6DC14 /* Frameworks */,
+				24EFDDAA24317EC800C6DC14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24EFDDB224317EC900C6DC14 /* PBXTargetDependency */,
+			);
+			name = LanguageMatchTests;
+			productName = LanguageMatchTests;
+			productReference = 24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		24AD899222F4C75400A1C1B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Thomas Kellough";
 				TargetAttributes = {
 					24AD899922F4C75500A1C1B7 = {
 						CreatedOnToolsVersion = 10.3;
+					};
+					24EFDDAB24317EC800C6DC14 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 24AD899922F4C75500A1C1B7;
 					};
 				};
 			};
@@ -192,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				24AD899922F4C75500A1C1B7 /* LanguageMatch */,
+				24EFDDAB24317EC800C6DC14 /* LanguageMatchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +274,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24EFDDAA24317EC800C6DC14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -240,7 +302,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24EFDDA824317EC800C6DC14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24EFDDBA2431822700C6DC14 /* LanguageMatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24EFDDB224317EC900C6DC14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24AD899922F4C75500A1C1B7 /* LanguageMatch */;
+			targetProxy = 24EFDDB124317EC900C6DC14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		24AD89A122F4C75500A1C1B7 /* Main.storyboard */ = {
@@ -416,6 +494,48 @@
 			};
 			name = Release;
 		};
+		24EFDDB324317EC900C6DC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMC4Z3BP4Y;
+				INFOPLIST_FILE = LanguageMatchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kellough.LanguageMatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanguageMatch.app/LanguageMatch";
+			};
+			name = Debug;
+		};
+		24EFDDB424317EC900C6DC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMC4Z3BP4Y;
+				INFOPLIST_FILE = LanguageMatchTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kellough.LanguageMatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LanguageMatch.app/LanguageMatch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -433,6 +553,15 @@
 			buildConfigurations = (
 				24AD89AD22F4C76D00A1C1B7 /* Debug */,
 				24AD89AE22F4C76D00A1C1B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24EFDDB524317EC900C6DC14 /* Build configuration list for PBXNativeTarget "LanguageMatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24EFDDB324317EC900C6DC14 /* Debug */,
+				24EFDDB424317EC900C6DC14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

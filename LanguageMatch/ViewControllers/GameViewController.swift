@@ -23,6 +23,10 @@ class GameViewController: UIViewController {
     var word1: String!
     var word2: String!
     weak var delegate: ViewController!
+    
+    // Both these variables are used for unit testing only
+    var englishFlags: Int = 0
+    var foreignFlags: Int = 0
 
     var flipsLabel: UILabel!
     var numberOfFlips = 0 {
@@ -226,8 +230,10 @@ class GameViewController: UIViewController {
                     wordButton.setBackgroundImage(imageIcon, for: .normal)
                 } else {
                     if englishWords.contains(randomWords[wordButton.tag - 1]) {
+                        englishFlags += 1
                         wordButton.setBackgroundImage(imageFlagIcon1, for: .normal)
                     } else {
+                        foreignFlags += 1
                         wordButton.setBackgroundImage(imageFlagIcon2, for: .normal)
                     }
                 }
