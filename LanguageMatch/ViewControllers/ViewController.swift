@@ -37,17 +37,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         let defaults = UserDefaults.standard
-        hardMode = defaults.bool(forKey: "switchState")
         let defaultLanguage = defaults.object(forKey: "language") as? String ?? "French"
         currentLanguage = Language(name: defaultLanguage)
         updateCurrentLanguage(language: currentLanguage.name)
+        updateHardMode()
         
         configureToDevice()
         
         performSelector(onMainThread: #selector(loadInterface), with: nil, waitUntilDone: false)
         
+    }
+    
+    func updateHardMode() {
+        let defaults = UserDefaults.standard
+        hardMode = defaults.bool(forKey: "switchState")
     }
     
     override func viewWillAppear(_ animated: Bool) {

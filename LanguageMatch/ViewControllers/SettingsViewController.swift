@@ -72,9 +72,7 @@ class SettingsViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: "switchState")
         }
         
-        let ac = UIAlertController(title: "Settings changed", message: "You must restart Flingo Match in order for the settings to take effect.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        delegate.updateHardMode()
     }
     
     func save(language: String) {
