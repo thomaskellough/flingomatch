@@ -16,7 +16,7 @@ extension UIView {
     }
 }
 
-//var globalDevice = "iphone"
+var globalDevice = "iphone"
 var globalFont = "ChalkboardSE-Regular"
 var globalFontSize = CGFloat(32)
 var globalScreenWidth = CGFloat(375)
