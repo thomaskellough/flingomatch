@@ -16,7 +16,7 @@ extension UIView {
     }
 }
 
-var globalDevice = "iphone"
+//var globalDevice = "iphone"
 var globalFont = "ChalkboardSE-Regular"
 var globalFontSize = CGFloat(32)
 var globalScreenWidth = CGFloat(375)
@@ -31,6 +31,9 @@ class ViewController: UIViewController {
     var settingsBtn: UIButton!
     var currentLanguage: Language!
     var hardMode: Bool?
+    var currentDevice: String!
+    var currentScreenWidth: CGFloat!
+    var flagSize: CGSize!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,39 +90,46 @@ class ViewController: UIViewController {
     
     func configureToDevice() {
 
-        globalScreenWidth = view.bounds.size.width
+        currentScreenWidth = view.bounds.size.width
         let screenHeight =  view.bounds.size.height
 
-        if globalScreenWidth >= 1024 {
+        if currentScreenWidth >= 1024 {
             // iPad Pro 12.9 - 1024 x 1366
-            globalDevice = "ipadLarge"
+            currentDevice = "ipadLarge"
             globalFontSize = 44
-        } else if globalScreenWidth >= 768 {
+            flagSize = CGSize(width: 150, height: 100)
+        } else if currentScreenWidth >= 768 {
             // iPad Airs, iPad Pro  9.7 - 768 x 1024
             // iPad Pro  10.5 - 834 x 1112
             // iPad Pro 11 - 834 x 1194
-            globalDevice = "ipadSmall"
+            currentDevice = "ipadSmall"
             globalFontSize = 44
-        } else if globalScreenWidth >= 414 && screenHeight >= 896 {
+            flagSize = CGSize(width: 150, height: 100)
+        } else if currentScreenWidth >= 414 && screenHeight >= 896 {
             // iPhone Xs Max, XR - 414 x 896
-            globalDevice = "iphoneMax"
+            currentDevice = "iphoneMax"
             globalFontSize = 38
-        } else if globalScreenWidth == 414 {
+            flagSize = CGSize(width: 150, height: 100)
+        } else if currentScreenWidth == 414 {
             // iPhone 6 Plus, iPhone 7 Plus, iPhone 8 Plus - 414 x 736
-            globalDevice = "iphonePlus"
+            currentDevice = "iphonePlus"
             globalFontSize = 38
-        } else if globalScreenWidth >= 375 && screenHeight >= 812 {
+            flagSize = CGSize(width: 150, height: 100)
+        } else if currentScreenWidth >= 375 && screenHeight >= 812 {
             // iPhone X, Xs - 375 x 812
-            globalDevice = "iphoneX"
+            currentDevice = "iphoneX"
             globalFontSize = 30
-        } else if globalScreenWidth > 320 {
+            flagSize = CGSize(width: 150, height: 100)
+        } else if currentScreenWidth > 320 {
             // iPhone 6, iPhone 7, iPhone 8 - 375 x 667
-            globalDevice = "iphoneReg"
+            currentDevice = "iphoneReg"
             globalFontSize = 30
-        } else if globalScreenWidth <= 320 {
+            flagSize = CGSize(width: 100, height: 50)
+        } else if currentScreenWidth <= 320 {
             // iPhone 5s, SE - 320 x 568
-            globalDevice = "iphoneSmall"
+            currentDevice = "iphoneSmall"
             globalFontSize = 26
+            flagSize = CGSize(width: 100, height: 50)
         }
     }
     
@@ -131,7 +141,7 @@ class ViewController: UIViewController {
         view.backgroundColor = currentLanguage.colorPrimary
         
         let height = view.bounds.size.height / 8
-        let width = globalScreenWidth - 20
+        let width = currentScreenWidth - 20
         var gap = CGFloat(10)
         
         let image = currentLanguage.flag
@@ -272,7 +282,7 @@ class ViewController: UIViewController {
     
     @objc func selectLanguage() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "languages") as? LanguageSelectViewController {
-            vc.mainVC = self
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

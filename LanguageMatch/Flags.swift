@@ -27,7 +27,6 @@ class Flags {
     func drawFrenchFlag() -> UIImage {
         var size: CGSize!
         
-        // TODO: Add support for iPad
         if globalScreenWidth < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
@@ -58,8 +57,7 @@ class Flags {
     
     func drawItalianFlag() -> UIImage {
         var size: CGSize!
-        
-        // TODO: Add support for iPad
+
         if globalScreenWidth < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
@@ -89,8 +87,7 @@ class Flags {
     }
     func drawSpanishFlag() -> UIImage {
         var size: CGSize!
-        
-        // TODO: Add support for iPad
+
         if globalScreenWidth < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
@@ -117,13 +114,13 @@ class Flags {
     
     func drawEmptyFlag() -> UIImage {
         var size: CGSize!
-        
-        // TODO: Add support for iPad
+
         if globalScreenWidth < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
             size = CGSize(width: 150, height: 100)
         }
+        
         let renderer = UIGraphicsImageRenderer(size: size)
         let flag = renderer.image { ctx in
             

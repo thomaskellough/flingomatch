@@ -75,13 +75,13 @@ class GameViewController: UIViewController {
     // Functions for Timed Play Mode
     func loadTimedPlayLabels(height: Int, width: Int) {
         var height = height
-        if globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadLarge" {
             height -= 75
-        } else if globalDevice == "ipadSmall" {
+        } else if delegate.currentDevice == "ipadSmall" {
             height -= 65
-        } else if globalDevice == "iphoneReg" || globalDevice == "iphonePlus" {
+        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
             height -= 30
-        } else if globalDevice == "iphoneSmall" {
+        } else if delegate.currentDevice == "iphoneSmall" {
             height -= 10
         }
         timerLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
@@ -106,13 +106,13 @@ class GameViewController: UIViewController {
     // Function for Single Player Mode
     func loadSinglePlayerLabels(height: Int, width: Int) {
         var height = height
-        if globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadLarge" {
             height -= 75
-        } else if globalDevice == "ipadSmall" {
+        } else if delegate.currentDevice == "ipadSmall" {
             height -= 65
-        } else if globalDevice == "iphoneReg" || globalDevice == "iphonePlus" {
+        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
             height -= 30
-        } else if globalDevice == "iphoneSmall" {
+        } else if delegate.currentDevice == "iphoneSmall" {
             height -= 10
         }
         flipsLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
@@ -126,13 +126,13 @@ class GameViewController: UIViewController {
     // Function for Two Player Mode
     func loadTwoPlayerLabels(height: Int, width: Int, buttonWidth: Int) {
         var height = height
-        if globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadLarge" {
             height -= 70
-        } else if globalDevice == "ipadSmall" {
+        } else if delegate.currentDevice == "ipadSmall" {
             height -= 50
-        } else if globalDevice == "iphoneReg" || globalDevice == "iphonePlus" {
+        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
             height -= 20
-        } else if globalDevice == "iphoneSmall" {
+        } else if delegate.currentDevice == "iphoneSmall" {
             height -= 10
         }
         playerTurn = UILabel(frame: CGRect(x: 0, y: height / 2, width: width, height: height * 2))
@@ -142,11 +142,11 @@ class GameViewController: UIViewController {
         playerTurn.textColor = delegate.currentLanguage.colorPrimary
         view.addSubview(playerTurn)
         
-        if globalDevice == "ipadSmall" || globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadSmall" || delegate.currentDevice == "ipadLarge" {
             height -= 20
-        } else if globalDevice == "iphoneReg" || globalDevice == "iphonePlus" {
+        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
             height -= 10
-        } else if globalDevice == "iphoneSmall" {
+        } else if delegate.currentDevice == "iphoneSmall" {
             height -= 10
         }
         scoreLabelPlayerOne = UILabel(frame: CGRect(x: 0, y: height * 2, width: buttonWidth, height: height))
@@ -186,18 +186,18 @@ class GameViewController: UIViewController {
         let labelWidth = Int(view.bounds.size.width)
         let buttonWidth = (labelWidth / 3) - 10
         var height = Int(Float(buttonWidth) / 1.5)
-        if globalDevice == "ipadSmall" || globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadSmall" || delegate.currentDevice == "ipadLarge" {
             height = Int(labelWidth / 6)
         }
         var xGap = (Int(view.bounds.size.width) - (buttonWidth * 3)) / 4
         var yGap = xGap
-        if globalDevice == "ipadLarge" {
+        if delegate.currentDevice == "ipadLarge" {
             yGap -= 235
-        } else if globalDevice == "ipadSmall" {
+        } else if delegate.currentDevice == "ipadSmall" {
             yGap -= 200
-        } else if globalDevice == "iphoneReg" || globalDevice == "iphonePlus" {
+        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
             yGap -= 85
-        } else if globalDevice == "iphoneSmall" {
+        } else if delegate.currentDevice == "iphoneSmall" {
             yGap -= 60
         }
         let spacer = xGap

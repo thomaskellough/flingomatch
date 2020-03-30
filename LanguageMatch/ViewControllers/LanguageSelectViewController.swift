@@ -10,7 +10,7 @@ import UIKit
 
 class LanguageSelectViewController: UITableViewController {
     
-    weak var mainVC: ViewController!
+    weak var delegate: ViewController!
     var languages: [String] = []
     var flags: Flags!
 
@@ -21,7 +21,7 @@ class LanguageSelectViewController: UITableViewController {
         languages = getLanguages()
         
         tableView.rowHeight = 80
-        view.backgroundColor = mainVC.currentLanguage.colorSecondary
+        view.backgroundColor = delegate.currentLanguage.colorSecondary
     }
     
     func getLanguages() -> [String] {
@@ -48,20 +48,20 @@ class LanguageSelectViewController: UITableViewController {
         let language = languages[indexPath.row]
         let image = flags.renderFlag(language: language)
         
-        cell.backgroundColor = mainVC.currentLanguage.colorSecondary
+        cell.backgroundColor = delegate.currentLanguage.colorSecondary
         cell.layer.cornerRadius = 5
         cell.imageView?.center = cell.center
         cell.imageView?.image = image
         cell.textLabel?.text = language
         cell.textLabel?.font = UIFont(name: globalFont, size: globalFontSize)
-        cell.textLabel?.textColor = mainVC.currentLanguage.colorPrimary
+        cell.textLabel?.textColor = delegate.currentLanguage.colorPrimary
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let language = languages[indexPath.row]
-        mainVC?.updateCurrentLanguage(language: language)
+        delegate?.updateCurrentLanguage(language: language)
         self.tableView.reloadData()
     }
 }
