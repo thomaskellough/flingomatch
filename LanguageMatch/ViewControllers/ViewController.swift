@@ -89,8 +89,6 @@ class ViewController: UIViewController {
         settingsBtn.backgroundColor = currentLanguage.colorPrimary
         settingsBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         settingsBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
-        
-//        loadWords()
     }
     
     func configureToDevice() {
