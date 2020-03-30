@@ -34,10 +34,18 @@
 		24EFDDA0242FA77000C6DC14 /* Spanish.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24EFDD9F242FA77000C6DC14 /* Spanish.txt */; };
 		24EFDDA5242FAA7B00C6DC14 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFDDA4242FAA7B00C6DC14 /* Language.swift */; };
 		24EFDDBA2431822700C6DC14 /* LanguageMatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFDDAE24317EC800C6DC14 /* LanguageMatchTests.swift */; };
+		24EFDDC32431878300C6DC14 /* LanguageMatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFDDC22431878300C6DC14 /* LanguageMatchUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		24EFDDB124317EC900C6DC14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24AD899222F4C75400A1C1B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24AD899922F4C75500A1C1B7;
+			remoteInfo = LanguageMatch;
+		};
+		24EFDDC52431878300C6DC14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24AD899222F4C75400A1C1B7 /* Project object */;
 			proxyType = 1;
@@ -78,6 +86,9 @@
 		24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanguageMatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24EFDDAE24317EC800C6DC14 /* LanguageMatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMatchTests.swift; sourceTree = "<group>"; };
 		24EFDDB024317EC900C6DC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24EFDDC02431878300C6DC14 /* LanguageMatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LanguageMatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24EFDDC22431878300C6DC14 /* LanguageMatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageMatchUITests.swift; sourceTree = "<group>"; };
+		24EFDDC42431878300C6DC14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +106,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24EFDDBD2431878300C6DC14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -103,6 +121,7 @@
 			children = (
 				24AD899C22F4C75500A1C1B7 /* LanguageMatch */,
 				24EFDDAD24317EC800C6DC14 /* LanguageMatchTests */,
+				24EFDDC12431878300C6DC14 /* LanguageMatchUITests */,
 				24AD899B22F4C75500A1C1B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +131,7 @@
 			children = (
 				24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */,
 				24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */,
+				24EFDDC02431878300C6DC14 /* LanguageMatchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +195,15 @@
 			path = LanguageMatchTests;
 			sourceTree = "<group>";
 		};
+		24EFDDC12431878300C6DC14 /* LanguageMatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				24EFDDC22431878300C6DC14 /* LanguageMatchUITests.swift */,
+				24EFDDC42431878300C6DC14 /* Info.plist */,
+			);
+			path = LanguageMatchUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +242,24 @@
 			productReference = 24EFDDAC24317EC800C6DC14 /* LanguageMatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		24EFDDBF2431878300C6DC14 /* LanguageMatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24EFDDC72431878300C6DC14 /* Build configuration list for PBXNativeTarget "LanguageMatchUITests" */;
+			buildPhases = (
+				24EFDDBC2431878300C6DC14 /* Sources */,
+				24EFDDBD2431878300C6DC14 /* Frameworks */,
+				24EFDDBE2431878300C6DC14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24EFDDC62431878300C6DC14 /* PBXTargetDependency */,
+			);
+			name = LanguageMatchUITests;
+			productName = LanguageMatchUITests;
+			productReference = 24EFDDC02431878300C6DC14 /* LanguageMatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +274,10 @@
 						CreatedOnToolsVersion = 10.3;
 					};
 					24EFDDAB24317EC800C6DC14 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 24AD899922F4C75500A1C1B7;
+					};
+					24EFDDBF2431878300C6DC14 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 24AD899922F4C75500A1C1B7;
 					};
@@ -247,6 +298,7 @@
 			targets = (
 				24AD899922F4C75500A1C1B7 /* LanguageMatch */,
 				24EFDDAB24317EC800C6DC14 /* LanguageMatchTests */,
+				24EFDDBF2431878300C6DC14 /* LanguageMatchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +327,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		24EFDDAA24317EC800C6DC14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24EFDDBE2431878300C6DC14 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,6 +369,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24EFDDBC2431878300C6DC14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24EFDDC32431878300C6DC14 /* LanguageMatchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -317,6 +384,11 @@
 			isa = PBXTargetDependency;
 			target = 24AD899922F4C75500A1C1B7 /* LanguageMatch */;
 			targetProxy = 24EFDDB124317EC900C6DC14 /* PBXContainerItemProxy */;
+		};
+		24EFDDC62431878300C6DC14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24AD899922F4C75500A1C1B7 /* LanguageMatch */;
+			targetProxy = 24EFDDC52431878300C6DC14 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -536,6 +608,46 @@
 			};
 			name = Release;
 		};
+		24EFDDC82431878300C6DC14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMC4Z3BP4Y;
+				INFOPLIST_FILE = LanguageMatchUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kellough.LanguageMatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanguageMatch;
+			};
+			name = Debug;
+		};
+		24EFDDC92431878300C6DC14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GMC4Z3BP4Y;
+				INFOPLIST_FILE = LanguageMatchUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kellough.LanguageMatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LanguageMatch;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -562,6 +674,15 @@
 			buildConfigurations = (
 				24EFDDB324317EC900C6DC14 /* Debug */,
 				24EFDDB424317EC900C6DC14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24EFDDC72431878300C6DC14 /* Build configuration list for PBXNativeTarget "LanguageMatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24EFDDC82431878300C6DC14 /* Debug */,
+				24EFDDC92431878300C6DC14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
