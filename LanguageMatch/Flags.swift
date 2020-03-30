@@ -11,7 +11,6 @@ import UIKit
 class Flags {
     
     func renderFlag(language: String) -> UIImage {
-        // When adding support for a new language you must also update ViewController, GameViewController and SettingsViewController
         switch language {
         case "French":
             return drawFrenchFlag()

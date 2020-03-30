@@ -216,7 +216,6 @@ class GameViewController: UIViewController {
             for col in 1...3 {
                 let wordButton = UIButton(type: .system)
                 wordButton.addTarget(self, action: #selector(wordTapped), for: .touchUpInside)
-                //wordButton.setTitleColor(globalPrimaryColor, for: .normal)
                 wordButton.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
                 wordButton.tag = count + 1
                 wordButton.titleLabel?.adjustsFontSizeToFitWidth = true
