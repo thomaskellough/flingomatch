@@ -34,8 +34,7 @@ class LanguageSelectViewController: UITableViewController {
             
             return items.filter { $0.hasSuffix(".txt") }.compactMap { $0.replacingOccurrences(of: ".txt", with: "") }
         } catch {
-            print("failed")
-            return []
+            fatalError("Could not load any languages!")
         }
     }
     
@@ -48,12 +47,18 @@ class LanguageSelectViewController: UITableViewController {
         let language = languages[indexPath.row]
         let image = flags.renderFlag(language: language)
         
+        if delegate.currentLanguage.name == language {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+
         cell.backgroundColor = delegate.currentLanguage.colorSecondary
         cell.layer.cornerRadius = 5
         cell.imageView?.center = cell.center
         cell.imageView?.image = image
         cell.textLabel?.text = language
-        cell.textLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
         cell.textLabel?.textColor = delegate.currentLanguage.colorPrimary
         
         return cell

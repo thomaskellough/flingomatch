@@ -89,7 +89,7 @@ class GameViewController: UIViewController {
             height -= 10
         }
         timerLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
-        timerLabel.font = UIFont(name: globalFont, size: globalFontSize)
+        timerLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         timerLabel.text = "Time left: 60s"
         timerLabel.textAlignment = .center
         timerLabel.textColor = delegate.currentLanguage.colorPrimary
@@ -120,7 +120,7 @@ class GameViewController: UIViewController {
             height -= 10
         }
         flipsLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
-        flipsLabel.font = UIFont(name: globalFont, size: globalFontSize)
+        flipsLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         flipsLabel.text = "Flips: 0"
         flipsLabel.textAlignment = .center
         flipsLabel.textColor = delegate.currentLanguage.colorPrimary
@@ -140,7 +140,7 @@ class GameViewController: UIViewController {
             height -= 10
         }
         playerTurn = UILabel(frame: CGRect(x: 0, y: height / 2, width: width, height: height * 2))
-        playerTurn.font = UIFont(name: globalFont, size: globalFontSize)
+        playerTurn.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         playerTurn.text = "Turn: Player 1"
         playerTurn.textAlignment = .center
         playerTurn.textColor = delegate.currentLanguage.colorPrimary
@@ -154,14 +154,14 @@ class GameViewController: UIViewController {
             height -= 10
         }
         scoreLabelPlayerOne = UILabel(frame: CGRect(x: 0, y: height * 2, width: buttonWidth, height: height))
-        scoreLabelPlayerOne.font = UIFont(name: globalFont, size: globalFontSize)
+        scoreLabelPlayerOne.font = UIFont.preferredFont(forTextStyle: .title1)
         scoreLabelPlayerOne.text = "P1: 0"
         scoreLabelPlayerOne.textAlignment = .center
         scoreLabelPlayerOne.textColor = delegate.currentLanguage.colorPrimary
         view.addSubview(scoreLabelPlayerOne)
         
         scoreLabelPlayerTwo = UILabel(frame: CGRect(x: buttonWidth * 2, y: height * 2, width: buttonWidth, height: height))
-        scoreLabelPlayerTwo.font = UIFont(name: globalFont, size: globalFontSize)
+        scoreLabelPlayerTwo.font = UIFont.preferredFont(forTextStyle: .title1)
         scoreLabelPlayerTwo.text = "P2: 0"
         scoreLabelPlayerTwo.textAlignment = .center
         scoreLabelPlayerTwo.textColor = delegate.currentLanguage.colorPrimary
@@ -223,7 +223,7 @@ class GameViewController: UIViewController {
                 wordButton.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
                 wordButton.tag = count + 1
                 wordButton.titleLabel?.adjustsFontSizeToFitWidth = true
-                wordButton.titleLabel?.font = UIFont.systemFont(ofSize: globalFontSize)
+                wordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
                 wordButton.titleLabel?.numberOfLines = 1
                 wordButton.titleLabel?.sizeToFit()
                 if delegate.hardMode! {
@@ -237,7 +237,11 @@ class GameViewController: UIViewController {
                         wordButton.setBackgroundImage(imageFlagIcon2, for: .normal)
                     }
                 }
-//                 wordButton.setTitle(randomWords[wordButton.tag - 1], for: .normal) // uncomment to view words without flipping - testing purposes
+                /*
+                // uncomment to view words without flipping - testing purposes
+                wordButton.setTitle(randomWords[wordButton.tag - 1], for: .normal)
+                wordButton.setBackgroundImage(nil, for: .normal)
+                */
                 
                 wordButton.clipsToBounds = true
                 wordButton.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor

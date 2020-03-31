@@ -67,7 +67,7 @@ class StudyViewController: UICollectionViewController {
         
         cell.label.adjustsFontSizeToFitWidth = true
         cell.label.backgroundColor = delegate.currentLanguage.colorPrimary
-        cell.label.font = UIFont.systemFont(ofSize: globalFontSize - 8)
+        cell.label.font = UIFont.preferredFont(forTextStyle: .body)
         cell.label.numberOfLines = 0
         cell.label.text = words[indexPath.row]
         cell.label.textAlignment = .center

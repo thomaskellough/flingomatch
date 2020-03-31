@@ -26,7 +26,7 @@ class Flags {
     func drawFrenchFlag() -> UIImage {
         var size: CGSize!
         
-        if globalScreenWidth < 375 {
+        if UIScreen.main.bounds.width < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
             size = CGSize(width: 150, height: 100)
@@ -57,7 +57,7 @@ class Flags {
     func drawItalianFlag() -> UIImage {
         var size: CGSize!
 
-        if globalScreenWidth < 375 {
+        if UIScreen.main.bounds.width < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
             size = CGSize(width: 150, height: 100)
@@ -87,7 +87,7 @@ class Flags {
     func drawSpanishFlag() -> UIImage {
         var size: CGSize!
 
-        if globalScreenWidth < 375 {
+        if UIScreen.main.bounds.width < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
             size = CGSize(width: 150, height: 100)
@@ -114,7 +114,7 @@ class Flags {
     func drawEmptyFlag() -> UIImage {
         var size: CGSize!
 
-        if globalScreenWidth < 375 {
+        if UIScreen.main.bounds.width < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
             size = CGSize(width: 150, height: 100)

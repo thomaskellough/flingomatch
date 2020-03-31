@@ -16,11 +16,6 @@ extension UIView {
     }
 }
 
-var globalDevice = "iphone"
-var globalFont = "ChalkboardSE-Regular"
-var globalFontSize = CGFloat(32)
-var globalScreenWidth = CGFloat(375)
-
 class ViewController: UIViewController {
     
     var currentLanguageBtn: UIButton!
@@ -43,8 +38,6 @@ class ViewController: UIViewController {
         currentLanguage = Language(name: defaultLanguage)
         updateCurrentLanguage(language: currentLanguage.name)
         updateHardMode()
-        
-        configureToDevice()
         
         performSelector(onMainThread: #selector(loadInterface), with: nil, waitUntilDone: false)
         
@@ -91,51 +84,6 @@ class ViewController: UIViewController {
         settingsBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
     }
     
-    func configureToDevice() {
-
-        currentScreenWidth = view.bounds.size.width
-        let screenHeight =  view.bounds.size.height
-
-        if currentScreenWidth >= 1024 {
-            // iPad Pro 12.9 - 1024 x 1366
-            currentDevice = "ipadLarge"
-            globalFontSize = 44
-            flagSize = CGSize(width: 150, height: 100)
-        } else if currentScreenWidth >= 768 {
-            // iPad Airs, iPad Pro  9.7 - 768 x 1024
-            // iPad Pro  10.5 - 834 x 1112
-            // iPad Pro 11 - 834 x 1194
-            currentDevice = "ipadSmall"
-            globalFontSize = 44
-            flagSize = CGSize(width: 150, height: 100)
-        } else if currentScreenWidth >= 414 && screenHeight >= 896 {
-            // iPhone Xs Max, XR - 414 x 896
-            currentDevice = "iphoneMax"
-            globalFontSize = 38
-            flagSize = CGSize(width: 150, height: 100)
-        } else if currentScreenWidth == 414 {
-            // iPhone 6 Plus, iPhone 7 Plus, iPhone 8 Plus - 414 x 736
-            currentDevice = "iphonePlus"
-            globalFontSize = 38
-            flagSize = CGSize(width: 150, height: 100)
-        } else if currentScreenWidth >= 375 && screenHeight >= 812 {
-            // iPhone X, Xs - 375 x 812
-            currentDevice = "iphoneX"
-            globalFontSize = 30
-            flagSize = CGSize(width: 150, height: 100)
-        } else if currentScreenWidth > 320 {
-            // iPhone 6, iPhone 7, iPhone 8 - 375 x 667
-            currentDevice = "iphoneReg"
-            globalFontSize = 30
-            flagSize = CGSize(width: 100, height: 50)
-        } else if currentScreenWidth <= 320 {
-            // iPhone 5s, SE - 320 x 568
-            currentDevice = "iphoneSmall"
-            globalFontSize = 26
-            flagSize = CGSize(width: 100, height: 50)
-        }
-    }
-    
     func updateCurrentLanguage(language: String) {
         currentLanguage = Language(name: language)
     }
@@ -144,7 +92,7 @@ class ViewController: UIViewController {
         view.backgroundColor = currentLanguage.colorPrimary
         
         let height = view.bounds.size.height / 8
-        let width = currentScreenWidth - 20
+        let width = view.bounds.width - 20
         var gap = CGFloat(10)
         
         let image = currentLanguage.flag
@@ -164,7 +112,7 @@ class ViewController: UIViewController {
         currentLanguageBtn.setTitle("  " + currentLanguage.name, for: .normal)
         currentLanguageBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         currentLanguageBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
-        currentLanguageBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        currentLanguageBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         currentLanguageBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         currentLanguageBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         currentLanguageBtn.titleLabel?.layer.shadowOpacity = 0.8
@@ -187,7 +135,7 @@ class ViewController: UIViewController {
         timedPlayBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         timedPlayBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         timedPlayBtn.setImage(UIImage(named: "timed"), for: .normal)
-        timedPlayBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        timedPlayBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         timedPlayBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         timedPlayBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         timedPlayBtn.titleLabel?.layer.shadowOpacity = 0.8
@@ -209,7 +157,7 @@ class ViewController: UIViewController {
         singlePlayerBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         singlePlayerBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         singlePlayerBtn.setImage(UIImage(named: "onePlayer"), for: .normal)
-        singlePlayerBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        singlePlayerBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         singlePlayerBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         singlePlayerBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         singlePlayerBtn.titleLabel?.layer.shadowOpacity = 0.8
@@ -231,7 +179,7 @@ class ViewController: UIViewController {
         twoPlayerBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         twoPlayerBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         twoPlayerBtn.setImage(UIImage(named: "twoPlayer"), for: .normal)
-        twoPlayerBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        twoPlayerBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         twoPlayerBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         twoPlayerBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         twoPlayerBtn.titleLabel?.layer.shadowOpacity = 0.8
@@ -253,7 +201,7 @@ class ViewController: UIViewController {
         studyBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         studyBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         studyBtn.setImage(UIImage(named: "study"), for: .normal)
-        studyBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        studyBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         studyBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         studyBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         studyBtn.titleLabel?.layer.shadowOpacity = 0.8
@@ -275,7 +223,7 @@ class ViewController: UIViewController {
         settingsBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
         settingsBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
         settingsBtn.setImage(UIImage(named: "settings"), for: .normal)
-        settingsBtn.titleLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        settingsBtn.titleLabel?.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         settingsBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         settingsBtn.titleLabel?.layer.shadowOffset = CGSize(width: 2, height: 2)
         settingsBtn.titleLabel?.layer.shadowOpacity = 0.8

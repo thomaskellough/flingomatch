@@ -48,7 +48,7 @@ class SettingsViewController: UITableViewController {
         
         cell.backgroundColor = delegate.currentLanguage.colorSecondary
         cell.layer.cornerRadius = 5
-        cell.textLabel?.font = UIFont(name: globalFont, size: globalFontSize)
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         cell.textLabel?.text = settingsList[indexPath.row]
         cell.textLabel?.textColor = delegate.currentLanguage.colorPrimary
         
