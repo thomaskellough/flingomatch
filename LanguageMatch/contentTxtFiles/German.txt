@@ -1,0 +1,61 @@
+please: bitte
+thank you: danke
+you're welcome: bitte
+how are you: wie gehts
+hello: hallo
+goodbye: auf wiedersehen
+good: gut
+morning: morgen
+afternoon: nachmittag
+night: nacht
+bathroom: Badezimmer
+restroom: Toilette
+sorry: es tut uns leid
+excuse me: entschuldigen Sie mich
+name (en) : name (gr)
+where: wo
+I: ich
+understand: verstehen
+one: ein
+two: zwei
+three: drei
+four: vier
+five: fünf
+six: sechs
+seven: seine
+eight: acht
+nine: neun
+ten: zehn
+airplane: flugzeug
+train: zug
+taxi (en): taxi (gr)
+bus (en): bus (gr) 
+subway: U-Bahn
+how much: wie viel
+restaurant (en): restaurant (gr)
+hotel (en): hotel (gr)
+speak: sprechen
+english: englisch
+menu: speisekarte
+help: hilfe
+boy: junge
+girl: mädchen
+man: mann
+woman: frau
+cat: katze
+dog: hund
+phone: telefon
+cheese: käse
+beef: rindfleisch
+chicken: hähnchen
+fish: fisch
+vegetarian: vegetarier
+breakfast: frühstück
+lunch: mittagessen
+dinner: abendessen
+tomorrow: morgen
+today: heute
+yesterday: gestern
+food: essen
+drink: getränk
+water: wasser

@@ -55,6 +55,7 @@ struct Language {
     var colorSecondary: UIColor?
     var colorTertiary: UIColor?
     var englishWords: [String]?
+    var foreignWords: [String]?
     var pairs: [Pair]?
     
     init(name: String) {
@@ -88,6 +89,7 @@ struct Language {
     
     mutating func loadWords() {
         englishWords = []
+        foreignWords = []
         pairs = [Pair]()
         
         if let wordFileURL = Bundle.main.url(forResource: self.name, withExtension: "txt") {
@@ -99,6 +101,7 @@ struct Language {
                     let wordOne = parts[0]
                     let wordTwo = parts[1]
                     englishWords?.append(wordOne)
+                    foreignWords?.append(wordTwo)
                     
                     let pair = Pair(wordOne: wordOne, wordTwo: wordTwo)
                     pairs?.append(pair)
