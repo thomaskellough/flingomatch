@@ -224,7 +224,7 @@ class GameViewController: UIViewController {
                 wordButton.tag = count + 1
                 wordButton.titleLabel?.adjustsFontSizeToFitWidth = true
                 wordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-                wordButton.titleLabel?.numberOfLines = 1
+                wordButton.titleLabel?.numberOfLines = 0
                 wordButton.titleLabel?.sizeToFit()
                 if delegate.hardMode! {
                     wordButton.setBackgroundImage(imageIcon, for: .normal)
