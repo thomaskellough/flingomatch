@@ -14,6 +14,8 @@ class Flags {
         switch language {
         case "French":
             return drawFrenchFlag()
+        case "German":
+            return drawGermanFlag()
         case "Spanish":
             return drawSpanishFlag()
         case "Italian":
@@ -24,13 +26,7 @@ class Flags {
     }
     
     func drawFrenchFlag() -> UIImage {
-        var size: CGSize!
-        
-        if UIScreen.main.bounds.width < 375 {
-            size = CGSize(width: 100, height: 50)
-        } else {
-            size = CGSize(width: 150, height: 100)
-        }
+        let size = getFlagSize()
         
         let renderer = UIGraphicsImageRenderer(size: size)
         let flag = renderer.image { ctx in
@@ -51,17 +47,37 @@ class Flags {
             ctx.cgContext.addRect(rectangleThree)
             ctx.cgContext.fill(rectangleThree)
         }
+        
+        return flag
+    }
+    
+    func drawGermanFlag() -> UIImage {
+        let size = getFlagSize()
+        
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let flag = renderer.image {ctx in
+            let rectangleOne = CGRect(x: 0, y: 0, width: size.width, height: size.height / 3)
+            let rectangleTwo = CGRect(x: 0, y: size.height / 3, width: size.width, height: size.height / 3)
+            let rectangleThree = CGRect(x: 0, y: (size.height / 3) * 2, width: size.width, height: size.height / 3)
+            
+            ctx.cgContext.setFillColor(UIColor.German.tertiary.cgColor)
+            ctx.cgContext.addRect(rectangleOne)
+            ctx.cgContext.fill(rectangleOne)
+            
+            ctx.cgContext.setFillColor(UIColor.German.secondary.cgColor)
+            ctx.cgContext.addRect(rectangleTwo)
+            ctx.cgContext.fill(rectangleTwo)
+            
+            ctx.cgContext.setFillColor(UIColor.German.primary.cgColor)
+            ctx.cgContext.addRect(rectangleThree)
+            ctx.cgContext.fill(rectangleThree)
+        }
+        
         return flag
     }
     
     func drawItalianFlag() -> UIImage {
-        var size: CGSize!
-
-        if UIScreen.main.bounds.width < 375 {
-            size = CGSize(width: 100, height: 50)
-        } else {
-            size = CGSize(width: 150, height: 100)
-        }
+        let size = getFlagSize()
         
         let renderer = UIGraphicsImageRenderer(size: size)
         let flag = renderer.image { ctx in
@@ -82,16 +98,12 @@ class Flags {
             ctx.cgContext.addRect(rectangleThree)
             ctx.cgContext.fill(rectangleThree)
         }
+        
         return flag
     }
+    
     func drawSpanishFlag() -> UIImage {
-        var size: CGSize!
-
-        if UIScreen.main.bounds.width < 375 {
-            size = CGSize(width: 100, height: 50)
-        } else {
-            size = CGSize(width: 150, height: 100)
-        }
+        let size = getFlagSize()
         
         let renderer = UIGraphicsImageRenderer(size: size)
         let flag = renderer.image { ctx in
@@ -108,17 +120,12 @@ class Flags {
             ctx.cgContext.addRect(rectangleTwo)
             ctx.cgContext.fill(rectangleTwo)
         }
+        
         return flag
     }
     
     func drawEmptyFlag() -> UIImage {
-        var size: CGSize!
-
-        if UIScreen.main.bounds.width < 375 {
-            size = CGSize(width: 100, height: 50)
-        } else {
-            size = CGSize(width: 150, height: 100)
-        }
+        let size = getFlagSize()
         
         let renderer = UIGraphicsImageRenderer(size: size)
         let flag = renderer.image { ctx in
@@ -129,6 +136,19 @@ class Flags {
             ctx.cgContext.addRect(rectangleOne)
             ctx.cgContext.fill(rectangleOne)
         }
+        
         return flag
+    }
+    
+    func getFlagSize() -> CGSize {
+        var size: CGSize
+        
+        if UIScreen.main.bounds.width < 375 {
+            size = CGSize(width: 100, height: 50)
+        } else {
+            size = CGSize(width: 150, height: 100)
+        }
+        
+        return size
     }
 }

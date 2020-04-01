@@ -181,7 +181,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dGb-TC-fym" firstAttribute="width" secondItem="bxT-QN-M3B" secondAttribute="width" id="KgB-7c-n7M"/>
                             <constraint firstItem="dGb-TC-fym" firstAttribute="leading" secondItem="Xxh-My-4yw" secondAttribute="leading" id="TDx-P7-dc3"/>

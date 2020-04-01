@@ -169,10 +169,9 @@ class GameViewController: UIViewController {
     }
     
     func loadImages(language: String) {
-        let iconString = "icon\(delegate.currentLanguage.name)"
         imageFlagIcon1 = UIImage(named: "iconAmerica")
         imageFlagIcon2 = delegate.currentLanguage.flag
-        imageIcon = UIImage(named: iconString)
+        imageIcon = UIImage(named: "iconTransparent256.png")
     }
     
     // Function all play modes share

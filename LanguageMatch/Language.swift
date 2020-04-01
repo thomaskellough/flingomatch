@@ -46,6 +46,18 @@ extension UIColor {
             return UIColor(red: 241/255, green: 191/255, blue: 0, alpha: 1)
         }
     }
+    
+    struct German {
+        static var primary: UIColor {
+            return UIColor(red: 255/255, green: 206/255, blue: 0, alpha: 1)
+        }
+        static var tertiary: UIColor {
+            return UIColor(red: 255/255, green: 0, blue: 0, alpha: 1)
+        }
+        static var secondary: UIColor {
+            return UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
 }
 
 struct Language {
@@ -80,6 +92,10 @@ struct Language {
             self.colorPrimary = UIColor.Spanish.primary
             self.colorSecondary = UIColor.Spanish.secondary
             self.colorTertiary = UIColor.Spanish.tertiary
+        case "German":
+            self.colorPrimary = UIColor.German.primary
+            self.colorSecondary = UIColor.German.secondary
+            self.colorTertiary = UIColor.German.tertiary
         default:
             self.colorPrimary = UIColor.white
             self.colorSecondary = UIColor.white
