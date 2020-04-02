@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     var currentLanguage: Language!
     var hardMode: Bool?
     var currentDevice: String!
-    var currentScreenWidth: CGFloat!
     var flagSize: CGSize!
     
     override func viewDidLoad() {
@@ -58,6 +57,8 @@ class ViewController: UIViewController {
         let image = currentLanguage.flag
         
         currentLanguageBtn.backgroundColor = currentLanguage.colorPrimary
+        currentLanguageBtn.imageView?.contentMode = .scaleAspectFit
+        
         currentLanguageBtn.setImage(image, for: .normal)
         currentLanguageBtn.setTitle("  " + currentLanguage.name, for: .normal)
         currentLanguageBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)

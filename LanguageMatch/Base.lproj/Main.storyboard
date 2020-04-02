@@ -206,13 +206,189 @@
                     <view key="view" contentMode="scaleToFill" id="1kw-Jr-PDU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Left: 60s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-nB-rzt">
+                                <rect key="frame" x="0.0" y="162" width="414" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqi-os-gNe">
+                                <rect key="frame" x="290" y="218" width="64" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="U5F-8S-VUP">
+                                <rect key="frame" x="20" y="276.5" width="374" height="453"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WXb-lC-zCW">
+                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="453"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm4-wd-pij">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92K-yc-7fd">
+                                                <rect key="frame" x="0.0" y="77" width="114.5" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nQ-Yg-Q4v">
+                                                <rect key="frame" x="0.0" y="153.5" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6it-ZV-9gb">
+                                                <rect key="frame" x="0.0" y="230.5" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTX-2w-jYt">
+                                                <rect key="frame" x="0.0" y="307.5" width="114.5" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYQ-wb-EtQ">
+                                                <rect key="frame" x="0.0" y="384" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconAmerica.png"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Hm4-wd-pij" firstAttribute="height" secondItem="WXb-lC-zCW" secondAttribute="width" multiplier="0.6" id="dK1-8h-I3T"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KmD-RQ-TPk">
+                                        <rect key="frame" x="129.5" y="0.0" width="115" height="453"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuX-RL-vir">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DD1-7f-FYN">
+                                                <rect key="frame" x="0.0" y="77" width="115" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3k-88-l4o">
+                                                <rect key="frame" x="0.0" y="153.5" width="115" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-t3-wnB">
+                                                <rect key="frame" x="0.0" y="230.5" width="115" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYk-vi-vGq">
+                                                <rect key="frame" x="0.0" y="307.5" width="115" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4z1-Gj-kyr">
+                                                <rect key="frame" x="0.0" y="384" width="115" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconItalian.png"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N6X-0v-9jw">
+                                        <rect key="frame" x="259.5" y="0.0" width="114.5" height="453"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWJ-Xr-LiQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWg-dA-EdY">
+                                                <rect key="frame" x="0.0" y="77" width="114.5" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7V-IG-HIj">
+                                                <rect key="frame" x="0.0" y="153.5" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZG-Ar-z6p">
+                                                <rect key="frame" x="0.0" y="230.5" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knd-tZ-cxg">
+                                                <rect key="frame" x="0.0" y="307.5" width="114.5" height="68.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlH-dh-ybQ">
+                                                <rect key="frame" x="0.0" y="384" width="114.5" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" image="iconFrench.png"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9v-fz-bcQ">
+                                <rect key="frame" x="60" y="218" width="60.5" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ysX-X2-7LL" firstAttribute="trailing" secondItem="lqi-os-gNe" secondAttribute="trailing" constant="60" id="2GW-CW-o7U"/>
+                            <constraint firstItem="U5F-8S-VUP" firstAttribute="centerY" secondItem="ysX-X2-7LL" secondAttribute="centerY" constant="50" id="3nl-3U-efs"/>
+                            <constraint firstItem="w9v-fz-bcQ" firstAttribute="leading" secondItem="ysX-X2-7LL" secondAttribute="leading" constant="60" id="G73-Ql-opr"/>
+                            <constraint firstItem="ysX-X2-7LL" firstAttribute="trailing" secondItem="gTZ-nB-rzt" secondAttribute="trailing" id="GSJ-Uy-eVV"/>
+                            <constraint firstItem="w9v-fz-bcQ" firstAttribute="top" secondItem="gTZ-nB-rzt" secondAttribute="bottom" constant="15" id="Plo-db-EfD"/>
+                            <constraint firstItem="U5F-8S-VUP" firstAttribute="centerX" secondItem="ysX-X2-7LL" secondAttribute="centerX" id="bF6-a4-3lb"/>
+                            <constraint firstItem="gTZ-nB-rzt" firstAttribute="leading" secondItem="ysX-X2-7LL" secondAttribute="leading" id="mWH-cd-kDx"/>
+                            <constraint firstItem="U5F-8S-VUP" firstAttribute="leading" secondItem="ysX-X2-7LL" secondAttribute="leading" constant="20" id="pbr-bn-V7K"/>
+                            <constraint firstAttribute="trailing" secondItem="U5F-8S-VUP" secondAttribute="trailing" constant="20" id="qP9-Nf-mxL"/>
+                            <constraint firstItem="U5F-8S-VUP" firstAttribute="top" secondItem="w9v-fz-bcQ" secondAttribute="bottom" constant="25" id="vA1-4I-rJA"/>
+                            <constraint firstItem="U5F-8S-VUP" firstAttribute="top" secondItem="lqi-os-gNe" secondAttribute="bottom" constant="25" id="vE4-J7-VEz"/>
+                            <constraint firstItem="lqi-os-gNe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w9v-fz-bcQ" secondAttribute="trailing" constant="8" symbolic="YES" id="z8A-v4-yw6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ysX-X2-7LL"/>
                     </view>
+                    <connections>
+                        <outlet property="gameTitleLabel" destination="gTZ-nB-rzt" id="akr-Ke-Otq"/>
+                        <outlet property="mainView" destination="1kw-Jr-PDU" id="W0q-P5-2qK"/>
+                        <outlet property="playerOneScoreLabel" destination="w9v-fz-bcQ" id="Yfp-8g-S3H"/>
+                        <outlet property="playerTwoScoreLabel" destination="lqi-os-gNe" id="SL5-6y-asV"/>
+                        <outletCollection property="cardButtons" destination="Hm4-wd-pij" collectionClass="NSMutableArray" id="x9X-Xd-u39"/>
+                        <outletCollection property="cardButtons" destination="BuX-RL-vir" collectionClass="NSMutableArray" id="CLw-y7-bq4"/>
+                        <outletCollection property="cardButtons" destination="mWJ-Xr-LiQ" collectionClass="NSMutableArray" id="IC4-3O-AaZ"/>
+                        <outletCollection property="cardButtons" destination="92K-yc-7fd" collectionClass="NSMutableArray" id="VdP-JR-k0j"/>
+                        <outletCollection property="cardButtons" destination="DD1-7f-FYN" collectionClass="NSMutableArray" id="EcB-eQ-a0B"/>
+                        <outletCollection property="cardButtons" destination="lWg-dA-EdY" collectionClass="NSMutableArray" id="m3n-QY-PWY"/>
+                        <outletCollection property="cardButtons" destination="3nQ-Yg-Q4v" collectionClass="NSMutableArray" id="hl2-Iq-DMq"/>
+                        <outletCollection property="cardButtons" destination="P3k-88-l4o" collectionClass="NSMutableArray" id="QFs-QC-EPo"/>
+                        <outletCollection property="cardButtons" destination="H7V-IG-HIj" collectionClass="NSMutableArray" id="F5f-t9-FeG"/>
+                        <outletCollection property="cardButtons" destination="6it-ZV-9gb" collectionClass="NSMutableArray" id="bKI-Fj-df9"/>
+                        <outletCollection property="cardButtons" destination="y9L-t3-wnB" collectionClass="NSMutableArray" id="fTS-re-wvp"/>
+                        <outletCollection property="cardButtons" destination="gZG-Ar-z6p" collectionClass="NSMutableArray" id="b6T-ch-H38"/>
+                        <outletCollection property="cardButtons" destination="WTX-2w-jYt" collectionClass="NSMutableArray" id="zkx-LU-bmS"/>
+                        <outletCollection property="cardButtons" destination="IYk-vi-vGq" collectionClass="NSMutableArray" id="OVh-YH-usv"/>
+                        <outletCollection property="cardButtons" destination="Knd-tZ-cxg" collectionClass="NSMutableArray" id="hEp-xQ-OwT"/>
+                        <outletCollection property="cardButtons" destination="FYQ-wb-EtQ" collectionClass="NSMutableArray" id="CD3-mF-ETk"/>
+                        <outletCollection property="cardButtons" destination="4z1-Gj-kyr" collectionClass="NSMutableArray" id="UMw-aV-iXu"/>
+                        <outletCollection property="cardButtons" destination="xlH-dh-ybQ" collectionClass="NSMutableArray" id="h2x-Lz-Pfr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5n-t8-fZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4265" y="116"/>
+            <point key="canvasLocation" x="4263.768115942029" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconAmerica.png" width="1024" height="682"/>
+        <image name="iconFrench.png" width="1024" height="1024"/>
+        <image name="iconItalian.png" width="245.75999450683594" height="245.75999450683594"/>
+    </resources>
 </document>

@@ -62,7 +62,7 @@ extension UIColor {
 
 struct Language {
     var name: String
-    var flag: UIImage
+    var flag: UIImage?
     var colorPrimary: UIColor?
     var colorSecondary: UIColor?
     var colorTertiary: UIColor?

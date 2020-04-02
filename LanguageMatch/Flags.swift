@@ -10,7 +10,7 @@ import UIKit
 
 class Flags {
     
-    func renderFlag(language: String) -> UIImage {
+    func renderFlag(language: String) -> UIImage? {
         switch language {
         case "French":
             return drawFrenchFlag()
@@ -21,7 +21,7 @@ class Flags {
         case "Italian":
             return drawItalianFlag()
         default:
-            return drawEmptyFlag()
+            return nil
         }
     }
     
@@ -124,29 +124,13 @@ class Flags {
         return flag
     }
     
-    func drawEmptyFlag() -> UIImage {
-        let size = getFlagSize()
-        
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let flag = renderer.image { ctx in
-            
-            let colorOne = UIColor.white.cgColor
-            let rectangleOne = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            ctx.cgContext.setFillColor(colorOne)
-            ctx.cgContext.addRect(rectangleOne)
-            ctx.cgContext.fill(rectangleOne)
-        }
-        
-        return flag
-    }
-    
     func getFlagSize() -> CGSize {
         var size: CGSize
         
         if UIScreen.main.bounds.width < 375 {
             size = CGSize(width: 100, height: 50)
         } else {
-            size = CGSize(width: 150, height: 100)
+            size = CGSize(width: 512, height: 341)
         }
         
         return size

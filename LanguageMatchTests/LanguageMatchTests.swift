@@ -105,6 +105,23 @@ class LanguageMatchTests: XCTestCase {
         XCTAssertEqual(whiteLanguageArray.count, 0, "\nERROR: You had \(whiteLanguageArray.count) language(s) that had UIColor.white as primary, secondary, and tertiary color. Please make sure you add a color scheme for each of the following languages in Language.swift.\n\(whiteLanguageArray)")
     }
     
+    func testFlagExist() {
+        let textFilesArray = getTxtFiles()
+        
+        var nilFlagArray = [String]()
+        
+        for file in textFilesArray {
+            let languageString = file.replacingOccurrences(of: ".txt", with: "")
+            let language = Language(name: languageString)
+            let flag = language.flag
+            
+            if flag == nil {
+                nilFlagArray.append(languageString)
+            }
+        }
+        XCTAssertEqual(nilFlagArray.count, 0, "\nERROR: There was at least one language that did not have a flag. Please make sure you render a flag for the following languages in Flags.swift\n\(nilFlagArray)")
+    }
+    
     func getTxtFiles() -> [String] {
         var textFilesArray = [String]()
         let fm = FileManager.default

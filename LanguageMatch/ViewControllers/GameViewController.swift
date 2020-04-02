@@ -10,6 +10,12 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    @IBOutlet var mainView: UIView!
+    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet weak var gameTitleLabel: UILabel!
+    @IBOutlet weak var playerOneScoreLabel: UILabel!
+    @IBOutlet weak var playerTwoScoreLabel: UILabel!
+    
     var compareDict = [String: String]()
     var imageIcon: UIImage!
     var imageFlagIcon1: UIImage!
@@ -28,44 +34,38 @@ class GameViewController: UIViewController {
     var englishFlags: Int = 0
     var foreignFlags: Int = 0
 
-    var flipsLabel: UILabel!
     var numberOfFlips = 0 {
         didSet {
-            flipsLabel.text = "Flips: \(numberOfFlips)"
+            gameTitleLabel.text = "Flips: \(numberOfFlips)"
         }
     }
-    
-    var playerTurn: UILabel!
+
     var playerOneTurn = true {
         didSet {
             if playerOneTurn {
-                playerTurn.text = "Turn: Player 1"
+                gameTitleLabel.text = "Turn: Player 1"
             } else {
-                playerTurn.text = "Turn: Player 2"
+                gameTitleLabel.text = "Turn: Player 2"
             }
         }
     }
-    
-    var scoreLabelPlayerOne: UILabel!
+
     var scorePlayerOne = 0 {
         didSet {
-            scoreLabelPlayerOne.text = "P1: \(scorePlayerOne)"
+            playerOneScoreLabel.text = "P2: \(scorePlayerOne)"
         }
     }
-    
-    var scoreLabelPlayerTwo: UILabel!
+
     var scorePlayerTwo = 0 {
         didSet {
-            scoreLabelPlayerTwo.text = "P2: \(scorePlayerTwo)"
-            
+            playerTwoScoreLabel.text = "P2: \(scorePlayerTwo)"
         }
     }
     
     var timer: Timer?
-    var timerLabel: UILabel!
     var time = 60 {
         didSet {
-            timerLabel.text = "Time Left: \(time)s"
+            gameTitleLabel.text = "Time Left: \(time)s"
         }
     }
     
@@ -76,26 +76,12 @@ class GameViewController: UIViewController {
         performSelector(onMainThread: #selector(loadGame), with: nil, waitUntilDone: false)
     }
     
-    // Functions for Timed Play Mode
-    func loadTimedPlayLabels(height: Int, width: Int) {
-        var height = height
-        if delegate.currentDevice == "ipadLarge" {
-            height -= 75
-        } else if delegate.currentDevice == "ipadSmall" {
-            height -= 65
-        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
-            height -= 30
-        } else if delegate.currentDevice == "iphoneSmall" {
-            height -= 10
-        }
-        timerLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
-        timerLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        timerLabel.text = "Time left: 60s"
-        timerLabel.textAlignment = .center
-        timerLabel.textColor = delegate.currentLanguage.colorPrimary
-        view.addSubview(timerLabel)
-        
+    func loadTimedPlayLabels() {
+        gameTitleLabel.text = "Time left: 60s"
+        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeLeft), userInfo: nil, repeats: true)
+        playerOneScoreLabel.text = nil
+        playerTwoScoreLabel.text = nil
     }
     
     @objc func updateTimeLeft() {
@@ -107,65 +93,20 @@ class GameViewController: UIViewController {
         }
     }
     
-    // Function for Single Player Mode
-    func loadSinglePlayerLabels(height: Int, width: Int) {
-        var height = height
-        if delegate.currentDevice == "ipadLarge" {
-            height -= 75
-        } else if delegate.currentDevice == "ipadSmall" {
-            height -= 65
-        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
-            height -= 30
-        } else if delegate.currentDevice == "iphoneSmall" {
-            height -= 10
-        }
-        flipsLabel = UILabel(frame: CGRect(x: 0, y: height, width: width, height: height * 2))
-        flipsLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        flipsLabel.text = "Flips: 0"
-        flipsLabel.textAlignment = .center
-        flipsLabel.textColor = delegate.currentLanguage.colorPrimary
-        view.addSubview(flipsLabel)
+    func loadSinglePlayerLabels() {
+        gameTitleLabel.text = "Flips: 0"
+        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
+        playerOneScoreLabel.text = nil
+        playerTwoScoreLabel.text = nil
     }
     
-    // Function for Two Player Mode
-    func loadTwoPlayerLabels(height: Int, width: Int, buttonWidth: Int) {
-        var height = height
-        if delegate.currentDevice == "ipadLarge" {
-            height -= 70
-        } else if delegate.currentDevice == "ipadSmall" {
-            height -= 50
-        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
-            height -= 20
-        } else if delegate.currentDevice == "iphoneSmall" {
-            height -= 10
-        }
-        playerTurn = UILabel(frame: CGRect(x: 0, y: height / 2, width: width, height: height * 2))
-        playerTurn.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        playerTurn.text = "Turn: Player 1"
-        playerTurn.textAlignment = .center
-        playerTurn.textColor = delegate.currentLanguage.colorPrimary
-        view.addSubview(playerTurn)
-        
-        if delegate.currentDevice == "ipadSmall" || delegate.currentDevice == "ipadLarge" {
-            height -= 20
-        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
-            height -= 10
-        } else if delegate.currentDevice == "iphoneSmall" {
-            height -= 10
-        }
-        scoreLabelPlayerOne = UILabel(frame: CGRect(x: 0, y: height * 2, width: buttonWidth, height: height))
-        scoreLabelPlayerOne.font = UIFont.preferredFont(forTextStyle: .title1)
-        scoreLabelPlayerOne.text = "P1: 0"
-        scoreLabelPlayerOne.textAlignment = .center
-        scoreLabelPlayerOne.textColor = delegate.currentLanguage.colorPrimary
-        view.addSubview(scoreLabelPlayerOne)
-        
-        scoreLabelPlayerTwo = UILabel(frame: CGRect(x: buttonWidth * 2, y: height * 2, width: buttonWidth, height: height))
-        scoreLabelPlayerTwo.font = UIFont.preferredFont(forTextStyle: .title1)
-        scoreLabelPlayerTwo.text = "P2: 0"
-        scoreLabelPlayerTwo.textAlignment = .center
-        scoreLabelPlayerTwo.textColor = delegate.currentLanguage.colorPrimary
-        view.addSubview(scoreLabelPlayerTwo)
+    func loadTwoPlayerLabels() {
+        gameTitleLabel.text = "Turn: Player 1"
+        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
+        playerOneScoreLabel.text = "P1: 0"
+        playerOneScoreLabel.textColor = delegate.currentLanguage.colorPrimary
+        playerTwoScoreLabel.text = "P2: 0"
+        playerTwoScoreLabel.textColor = delegate.currentLanguage.colorPrimary
     }
     
     func loadImages(language: String) {
@@ -176,92 +117,57 @@ class GameViewController: UIViewController {
     
     // Function all play modes share
     @objc func loadGame() {
-        self.view.removeAllSubviews()
-        self.view.backgroundColor = delegate.currentLanguage.colorSecondary
+        mainView.backgroundColor = delegate.currentLanguage.colorSecondary
         loadImages(language: delegate.currentLanguage.name)
         setsWon = 0
+        time = 60
         randomWords = randomSets()
-        assert(!randomWords.isEmpty, "Error: Random words are empty. Please check randomSets function to determine reason for early return.")
         guard let englishWords = delegate.currentLanguage.englishWords else { return }
+
+        assert(!randomWords.isEmpty, "Error: Random words are empty. Please check randomSets function to determine reason for early return.")
         assert(englishWords.count > 9, "Error: Could only load \(englishWords.count) english words when we need at least 9.")
-        var count = 0
-        
-        let labelWidth = Int(view.bounds.size.width)
-        let buttonWidth = (labelWidth / 3) - 10
-        var height = Int(Float(buttonWidth) / 1.5)
-        if delegate.currentDevice == "ipadSmall" || delegate.currentDevice == "ipadLarge" {
-            height = Int(labelWidth / 6)
-        }
-        var xGap = (Int(view.bounds.size.width) - (buttonWidth * 3)) / 4
-        var yGap = xGap
-        if delegate.currentDevice == "ipadLarge" {
-            yGap -= 235
-        } else if delegate.currentDevice == "ipadSmall" {
-            yGap -= 200
-        } else if delegate.currentDevice == "iphoneReg" || delegate.currentDevice == "iphonePlus" {
-            yGap -= 85
-        } else if delegate.currentDevice == "iphoneSmall" {
-            yGap -= 60
-        }
-        let spacer = xGap
         
         if playMode == "timed" {
-            loadTimedPlayLabels(height: height, width: labelWidth)
+            loadTimedPlayLabels()
         } else if playMode == "single" {
-            loadSinglePlayerLabels(height: height, width: labelWidth)
+            loadSinglePlayerLabels()
         } else if playMode == "two" {
-            loadTwoPlayerLabels(height: height, width: labelWidth, buttonWidth: buttonWidth)
+            loadTwoPlayerLabels()
         }
         
-        // TODO: Add support for landscape mode. Will probably have to re-write with constraints
-        for row in 1...6 {
-            xGap = spacer
-            for col in 1...3 {
-                let wordButton = UIButton(type: .system)
-                wordButton.addTarget(self, action: #selector(wordTapped), for: .touchUpInside)
-                wordButton.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
-                wordButton.tag = count + 1
-                wordButton.titleLabel?.adjustsFontSizeToFitWidth = true
-                wordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-                wordButton.titleLabel?.numberOfLines = 0
-                wordButton.titleLabel?.sizeToFit()
-                if delegate.hardMode! {
-                    wordButton.setBackgroundImage(imageIcon, for: .normal)
+        // TODO: Add support for landscape mode.
+        for btn in cardButtons {
+            btn.addTarget(self, action: #selector(wordTapped), for: .touchUpInside)
+            btn.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
+            if delegate.hardMode! {
+                btn.setImage(imageIcon, for: .normal)
+            } else {
+                if englishWords.contains(randomWords[btn.tag - 1]) {
+                    englishFlags += 1 // used for unit testing
+                    btn.setImage(imageFlagIcon1, for: .normal)
                 } else {
-                    if englishWords.contains(randomWords[wordButton.tag - 1]) {
-                        englishFlags += 1
-                        wordButton.setBackgroundImage(imageFlagIcon1, for: .normal)
-                    } else {
-                        foreignFlags += 1
-                        wordButton.setBackgroundImage(imageFlagIcon2, for: .normal)
-                    }
+                    foreignFlags += 1 // used for unit testing
+                    btn.setImage(imageFlagIcon2, for: .normal)
                 }
-                /*
-                // uncomment to view words without flipping - testing purposes
-                wordButton.setTitle(randomWords[wordButton.tag - 1], for: .normal)
-                wordButton.setBackgroundImage(nil, for: .normal)
-                */
-                
-                wordButton.clipsToBounds = true
-                wordButton.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
-                wordButton.layer.borderWidth = 1
-                wordButton.layer.cornerRadius = 5
-                wordButton.layer.shadowColor = delegate.currentLanguage.colorPrimary?.cgColor
-                wordButton.layer.shadowOffset = CGSize(width: 1, height: 1)
-                wordButton.layer.shadowOpacity = 0.8
-                wordButton.layer.shadowRadius = 2
-                wordButton.backgroundColor = delegate.currentLanguage.colorPrimary
-                
-                let frame = CGRect(x: (col * buttonWidth) - buttonWidth + xGap, y: (row * height) + (2 * height) + yGap, width: buttonWidth, height: height)
-                wordButton.frame = frame
-                
-                view.addSubview(wordButton)
-                count += 1
-                xGap += spacer
             }
-            yGap += spacer
+            
+            btn.backgroundColor = delegate.currentLanguage.colorPrimary
+            btn.imageView?.contentMode = .scaleToFill
+            btn.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
+            btn.layer.borderWidth = 1
+            btn.layer.cornerRadius = 5
+            btn.layer.shadowColor = delegate.currentLanguage.colorPrimary?.cgColor
+            btn.layer.shadowOffset = CGSize(width: 1, height: 1)
+            btn.layer.shadowOpacity = 0.8
+            btn.layer.shadowRadius = 2
+            btn.isUserInteractionEnabled = true
+            /*
+             // Remove comments to view words without flipping - testing purposes
+            btn.setTitle(randomWords[btn.tag], for: .normal)
+            btn.setImage(nil, for: .normal)
+            */
+            view.isUserInteractionEnabled = true
         }
-        view.isUserInteractionEnabled = true
     }
     
     func restartGame(action: UIAlertAction) {
@@ -298,7 +204,7 @@ class GameViewController: UIViewController {
         button.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromTop]
         UIView.transition(with: button, duration: 1.0, options: transitionOptions, animations: {
-            button.setBackgroundImage(nil, for: .normal)
+            button.setImage(nil, for: .normal)
             button.setTitle(self.randomWords[tag - 1], for: .normal)
         })
     }
@@ -314,9 +220,9 @@ class GameViewController: UIViewController {
                 button.setBackgroundImage(self.imageIcon, for: .normal)
             } else {
                 if englishWords.contains(self.randomWords[button.tag - 1]) {
-                    button.setBackgroundImage(self.imageFlagIcon1, for: .normal)
+                    button.setImage(self.imageFlagIcon1, for: .normal)
                 } else {
-                    button.setBackgroundImage(self.imageFlagIcon2, for: .normal)
+                    button.setImage(self.imageFlagIcon2, for: .normal)
                 }
             }
             button.setTitle(nil, for: .normal)
@@ -356,8 +262,7 @@ class GameViewController: UIViewController {
         if compareDict[word1] == word2 {
             self.view.isUserInteractionEnabled = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.removeButton(buttonOne)
-                self.removeButton(buttonTwo)
+                self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
                 if self.playMode == "two" { self.incrementScore() }
                 self.setsWon += 1
                 if self.setsWon == 9 {
@@ -367,8 +272,7 @@ class GameViewController: UIViewController {
         } else if compareDict[word2] == word1 {
             self.view.isUserInteractionEnabled = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.removeButton(buttonOne)
-                self.removeButton(buttonTwo)
+                self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
                 if self.playMode == "two" { self.incrementScore() }
                 self.setsWon += 1
                 if self.setsWon == 9 {
@@ -386,6 +290,18 @@ class GameViewController: UIViewController {
         
         numberTapped = 0
         
+    }
+    
+    func deactivateCards(btnOne: UIButton, btnTwo: UIButton) {
+        let btnArray = [btnOne, btnTwo]
+        
+        btnArray.forEach {
+            $0.setImage(nil, for: .normal)
+            $0.setTitle(nil, for: .normal)
+            $0.backgroundColor = delegate.currentLanguage.colorSecondary
+            $0.layer.borderColor = delegate.currentLanguage.colorSecondary?.cgColor
+            $0.isUserInteractionEnabled = false
+        }
     }
     
     func incrementScore() {
@@ -418,7 +334,6 @@ class GameViewController: UIViewController {
             }
         }
         
-        setsWon = 0
         let ac = UIAlertController(title: "Game over!", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "Play again!", style: .default, handler: restartGame))

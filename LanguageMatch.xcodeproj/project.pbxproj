@@ -10,6 +10,7 @@
 		247DF5502433C025000A5A47 /* German.txt in Resources */ = {isa = PBXBuildFile; fileRef = 247DF54F2433C025000A5A47 /* German.txt */; };
 		247DF5522434337C000A5A47 /* iconTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 247DF5512434337C000A5A47 /* iconTransparent.png */; };
 		247DF554243434F6000A5A47 /* iconTransparent256.png in Resources */ = {isa = PBXBuildFile; fileRef = 247DF553243434F6000A5A47 /* iconTransparent256.png */; };
+		24859B69243566890072B5B2 /* flagFrench.png in Resources */ = {isa = PBXBuildFile; fileRef = 24859B68243566890072B5B2 /* flagFrench.png */; };
 		24AD899E22F4C75500A1C1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD899D22F4C75500A1C1B7 /* AppDelegate.swift */; };
 		24AD89A022F4C75500A1C1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AD899F22F4C75500A1C1B7 /* ViewController.swift */; };
 		24AD89A322F4C75500A1C1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AD89A122F4C75500A1C1B7 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		247DF54F2433C025000A5A47 /* German.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = German.txt; sourceTree = "<group>"; };
 		247DF5512434337C000A5A47 /* iconTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconTransparent.png; path = LanguageMatch/iconTransparent.png; sourceTree = SOURCE_ROOT; };
 		247DF553243434F6000A5A47 /* iconTransparent256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconTransparent256.png; path = LanguageMatch/iconTransparent256.png; sourceTree = SOURCE_ROOT; };
+		24859B68243566890072B5B2 /* flagFrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flagFrench.png; path = LanguageMatch/flagFrench.png; sourceTree = SOURCE_ROOT; };
 		24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24AD899D22F4C75500A1C1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24AD899F22F4C75500A1C1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		24EFDD99242FA66100C6DC14 /* contentImages */ = {
 			isa = PBXGroup;
 			children = (
+				24859B68243566890072B5B2 /* flagFrench.png */,
 				24AD89FB22F7864A00A1C1B7 /* iconAmerica.png */,
 				24AD89F922F769CD00A1C1B7 /* iconFrench.png */,
 				24AD89F722F769B900A1C1B7 /* iconSpanish.png */,
@@ -334,6 +337,7 @@
 				24AD89A322F4C75500A1C1B7 /* Main.storyboard in Resources */,
 				24EFDD9C242FA75700C6DC14 /* French.txt in Resources */,
 				24AD89BF22F4F12D00A1C1B7 /* twoPlayer.png in Resources */,
+				24859B69243566890072B5B2 /* flagFrench.png in Resources */,
 				24EFDDA0242FA77000C6DC14 /* Spanish.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
