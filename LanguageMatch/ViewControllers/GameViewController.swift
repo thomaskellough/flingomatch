@@ -160,12 +160,13 @@ class GameViewController: UIViewController {
             btn.layer.shadowOffset = CGSize(width: 1, height: 1)
             btn.layer.shadowOpacity = 0.8
             btn.layer.shadowRadius = 2
+            btn.titleLabel?.numberOfLines = 0
             btn.isUserInteractionEnabled = true
-            /*
+            
              // Remove comments to view words without flipping - testing purposes
-            btn.setTitle(randomWords[btn.tag], for: .normal)
+            btn.setTitle(randomWords[btn.tag - 1], for: .normal)
             btn.setImage(nil, for: .normal)
-            */
+            
             view.isUserInteractionEnabled = true
         }
     }
