@@ -164,8 +164,8 @@ class GameViewController: UIViewController {
             btn.isUserInteractionEnabled = true
             
              // Remove comments to view words without flipping - testing purposes
-            btn.setTitle(randomWords[btn.tag - 1], for: .normal)
-            btn.setImage(nil, for: .normal)
+//            btn.setTitle(randomWords[btn.tag - 1], for: .normal)
+//            btn.setImage(nil, for: .normal)
             
             view.isUserInteractionEnabled = true
         }
@@ -263,21 +263,23 @@ class GameViewController: UIViewController {
         if compareDict[word1] == word2 {
             self.view.isUserInteractionEnabled = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
-                if self.playMode == "two" { self.incrementScore() }
                 self.setsWon += 1
+                if self.playMode == "two" { self.incrementScore() }
                 if self.setsWon == 9 {
                     self.endGame()
+                } else {
+                    self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
                 }
             }
         } else if compareDict[word2] == word1 {
             self.view.isUserInteractionEnabled = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
-                if self.playMode == "two" { self.incrementScore() }
                 self.setsWon += 1
+                if self.playMode == "two" { self.incrementScore() }
                 if self.setsWon == 9 {
                     self.endGame()
+                } else {
+                    self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
                 }
             }
         } else {
