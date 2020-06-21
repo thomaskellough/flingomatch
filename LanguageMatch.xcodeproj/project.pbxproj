@@ -147,18 +147,16 @@
 		24AD899C22F4C75500A1C1B7 /* LanguageMatch */ = {
 			isa = PBXGroup;
 			children = (
+				BC75F8BD249EFF5400B73A4A /* Models */,
 				BC75F8BC249EEB7800B73A4A /* View Controllers */,
 				24EFDD99242FA66100C6DC14 /* contentImages */,
 				24EFDD9A242FA67000C6DC14 /* contentTxtFiles */,
 				24AD89C922F5167700A1C1B7 /* CollectionViewCell.swift */,
 				24AD89A122F4C75500A1C1B7 /* Main.storyboard */,
 				24AD899D22F4C75500A1C1B7 /* AppDelegate.swift */,
-				24AD89C122F4F1FD00A1C1B7 /* Flags.swift */,
-				24AD89AF22F4DA0400A1C1B7 /* Pair.swift */,
 				24AD89A622F4C76D00A1C1B7 /* LaunchScreen.storyboard */,
 				24AD89A922F4C76D00A1C1B7 /* Info.plist */,
 				24AD89A422F4C76D00A1C1B7 /* Assets.xcassets */,
-				24EFDDA4242FAA7B00C6DC14 /* Language.swift */,
 			);
 			path = LanguageMatch;
 			sourceTree = "<group>";
@@ -222,6 +220,16 @@
 				24AD899F22F4C75500A1C1B7 /* ViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BC75F8BD249EFF5400B73A4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				24EFDDA4242FAA7B00C6DC14 /* Language.swift */,
+				24AD89C122F4F1FD00A1C1B7 /* Flags.swift */,
+				24AD89AF22F4DA0400A1C1B7 /* Pair.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

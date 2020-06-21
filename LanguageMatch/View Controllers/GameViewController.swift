@@ -268,7 +268,7 @@ class GameViewController: UIViewController {
                 if self.setsWon == 9 {
                     self.endGame()
                 } else {
-                    self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
+                    self.deactivateCards([buttonOne, buttonTwo])
                 }
             }
         } else if compareDict[word2] == word1 {
@@ -279,7 +279,7 @@ class GameViewController: UIViewController {
                 if self.setsWon == 9 {
                     self.endGame()
                 } else {
-                    self.deactivateCards(btnOne: buttonOne, btnTwo: buttonTwo)
+                    self.deactivateCards([buttonOne, buttonTwo])
                 }
             }
         } else {
@@ -295,16 +295,19 @@ class GameViewController: UIViewController {
         
     }
     
-    func deactivateCards(btnOne: UIButton, btnTwo: UIButton) {
-        let btnArray = [btnOne, btnTwo]
-        
-        btnArray.forEach {
-            $0.setImage(nil, for: .normal)
-            $0.setTitle(nil, for: .normal)
-            $0.backgroundColor = delegate.currentLanguage.colorSecondary
-            $0.layer.borderColor = delegate.currentLanguage.colorSecondary?.cgColor
-            $0.isUserInteractionEnabled = false
-        }
+    func deactivateCards(_ cards: [UIButton]) {
+        cards.forEach { deactivateAnimation($0) }
+    }
+    
+    func deactivateAnimation(_ card: UIButton) {
+        let transitionOptions: UIView.AnimationOptions = [.transitionCrossDissolve]
+        UIView.transition(with: card, duration: 1.0, options: transitionOptions, animations: {
+            card.backgroundColor = nil
+            card.layer.borderColor = nil
+            card.isUserInteractionEnabled = false
+            card.setTitle(nil, for: .normal)
+            card.setBackgroundImage(nil, for: .normal)
+        })
     }
     
     func incrementScore() {
