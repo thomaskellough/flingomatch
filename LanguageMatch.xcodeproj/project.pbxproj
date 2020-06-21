@@ -65,7 +65,7 @@
 		24859B68243566890072B5B2 /* flagFrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flagFrench.png; path = LanguageMatch/flagFrench.png; sourceTree = SOURCE_ROOT; };
 		24AD899A22F4C75500A1C1B7 /* LanguageMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24AD899D22F4C75500A1C1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24AD899F22F4C75500A1C1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
+		24AD899F22F4C75500A1C1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24AD89A222F4C75500A1C1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24AD89A422F4C76D00A1C1B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24AD89A722F4C76D00A1C1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,12 +77,12 @@
 		24AD89B722F4F12D00A1C1B7 /* twoPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twoPlayer.png; path = ../twoPlayer.png; sourceTree = "<group>"; };
 		24AD89B822F4F12D00A1C1B7 /* onePlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onePlayer.png; path = ../onePlayer.png; sourceTree = "<group>"; };
 		24AD89C122F4F1FD00A1C1B7 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
-		24AD89C522F50C3400A1C1B7 /* LanguageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageSelectViewController.swift; path = ViewControllers/LanguageSelectViewController.swift; sourceTree = "<group>"; };
-		24AD89C722F5156A00A1C1B7 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StudyViewController.swift; path = ViewControllers/StudyViewController.swift; sourceTree = "<group>"; };
+		24AD89C522F50C3400A1C1B7 /* LanguageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectViewController.swift; sourceTree = "<group>"; };
+		24AD89C722F5156A00A1C1B7 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		24AD89C922F5167700A1C1B7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ViewControllers/CollectionViewCell.swift; sourceTree = "<group>"; };
-		24AD89CB22F51D5A00A1C1B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
-		24AD89CD22F51E2F00A1C1B7 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AcknowledgementsViewController.swift; path = ViewControllers/AcknowledgementsViewController.swift; sourceTree = "<group>"; };
-		24AD89D122F5BC5500A1C1B7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
+		24AD89CB22F51D5A00A1C1B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		24AD89CD22F51E2F00A1C1B7 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
+		24AD89D122F5BC5500A1C1B7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		24AD89F522F75E9800A1C1B7 /* iconItalian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconItalian.png; path = ../iconItalian.png; sourceTree = "<group>"; };
 		24AD89F722F769B900A1C1B7 /* iconSpanish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconSpanish.png; path = ../iconSpanish.png; sourceTree = "<group>"; };
 		24AD89F922F769CD00A1C1B7 /* iconFrench.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconFrench.png; path = ../iconFrench.png; sourceTree = "<group>"; };
@@ -147,15 +147,10 @@
 		24AD899C22F4C75500A1C1B7 /* LanguageMatch */ = {
 			isa = PBXGroup;
 			children = (
+				BC75F8BC249EEB7800B73A4A /* View Controllers */,
 				24EFDD99242FA66100C6DC14 /* contentImages */,
 				24EFDD9A242FA67000C6DC14 /* contentTxtFiles */,
-				24AD89CD22F51E2F00A1C1B7 /* AcknowledgementsViewController.swift */,
 				24AD89C922F5167700A1C1B7 /* CollectionViewCell.swift */,
-				24AD89D122F5BC5500A1C1B7 /* GameViewController.swift */,
-				24AD89C522F50C3400A1C1B7 /* LanguageSelectViewController.swift */,
-				24AD89CB22F51D5A00A1C1B7 /* SettingsViewController.swift */,
-				24AD89C722F5156A00A1C1B7 /* StudyViewController.swift */,
-				24AD899F22F4C75500A1C1B7 /* ViewController.swift */,
 				24AD89A122F4C75500A1C1B7 /* Main.storyboard */,
 				24AD899D22F4C75500A1C1B7 /* AppDelegate.swift */,
 				24AD89C122F4F1FD00A1C1B7 /* Flags.swift */,
@@ -214,6 +209,19 @@
 				24EFDDC42431878300C6DC14 /* Info.plist */,
 			);
 			path = LanguageMatchUITests;
+			sourceTree = "<group>";
+		};
+		BC75F8BC249EEB7800B73A4A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24AD89CD22F51E2F00A1C1B7 /* AcknowledgementsViewController.swift */,
+				24AD89D122F5BC5500A1C1B7 /* GameViewController.swift */,
+				24AD89C522F50C3400A1C1B7 /* LanguageSelectViewController.swift */,
+				24AD89CB22F51D5A00A1C1B7 /* SettingsViewController.swift */,
+				24AD89C722F5156A00A1C1B7 /* StudyViewController.swift */,
+				24AD899F22F4C75500A1C1B7 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

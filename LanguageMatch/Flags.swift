@@ -60,11 +60,11 @@ class Flags {
             let rectangleTwo = CGRect(x: 0, y: size.height / 3, width: size.width, height: size.height / 3)
             let rectangleThree = CGRect(x: 0, y: (size.height / 3) * 2, width: size.width, height: size.height / 3)
             
-            ctx.cgContext.setFillColor(UIColor.German.tertiary.cgColor)
+            ctx.cgContext.setFillColor(UIColor.German.secondary.cgColor)
             ctx.cgContext.addRect(rectangleOne)
             ctx.cgContext.fill(rectangleOne)
             
-            ctx.cgContext.setFillColor(UIColor.German.secondary.cgColor)
+            ctx.cgContext.setFillColor(UIColor.German.tertiary.cgColor)
             ctx.cgContext.addRect(rectangleTwo)
             ctx.cgContext.fill(rectangleTwo)
             
