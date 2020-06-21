@@ -9,57 +9,6 @@
 import Foundation
 import UIKit
 
-extension UIColor {
-
-    struct French {
-        static var primary: UIColor {
-            return UIColor(red: 0, green: 85/255, blue: 164/255, alpha: 1)
-        }
-        static var secondary: UIColor {
-            return UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        }
-        static var tertiary: UIColor {
-            return UIColor(red: 239/255, green: 65/255, blue: 63/255, alpha: 1)
-        }
-    }
-
-    struct Italian {
-        static var primary: UIColor {
-            return UIColor(red: 0, green: 140/255, blue: 69/255, alpha: 1)
-        }
-        static var secondary: UIColor {
-            return UIColor(red: 244/255, green: 245/255, blue: 240/255, alpha: 1)
-        }
-        static var tertiary: UIColor {
-            return UIColor(red: 205/255, green: 33/255, blue: 42/255, alpha: 1)
-        }
-    }
-
-    struct Spanish {
-        static var primary: UIColor {
-            return UIColor(red: 170/255, green: 21/255, blue: 27/255, alpha: 1)
-        }
-        static var secondary: UIColor {
-            return UIColor.white
-        }
-        static var tertiary: UIColor {
-            return UIColor(red: 241/255, green: 191/255, blue: 0, alpha: 1)
-        }
-    }
-    
-    struct German {
-        static var primary: UIColor {
-            return UIColor(red: 255/255, green: 206/255, blue: 0, alpha: 1)
-        }
-        static var tertiary: UIColor {
-            return UIColor(red: 255/255, green: 0, blue: 0, alpha: 1)
-        }
-        static var secondary: UIColor {
-            return UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        }
-    }
-}
-
 struct Language {
     var name: String
     var flag: UIImage?
