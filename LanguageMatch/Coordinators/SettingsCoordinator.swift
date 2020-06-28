@@ -15,6 +15,7 @@ class SettingsCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     var children: [Coordinator] = []
+    weak var parentCoordinator: MainCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,6 +31,10 @@ class SettingsCoordinator: Coordinator {
     func showAcknowledgements() {
         let vc = AcknowledgementsViewController.instantiate()
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func didLeaveSettings() {
+        parentCoordinator?.childDidFinish(self)
     }
     
 }

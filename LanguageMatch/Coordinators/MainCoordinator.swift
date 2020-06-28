@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     var navigationController: UINavigationController
     var children = [Coordinator]()
@@ -49,4 +49,23 @@ class MainCoordinator: Coordinator {
         children.append(child)
         child.start(with: delegate)
     }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in children.enumerated() {
+            if coordinator === child {
+                children.remove(at: index)
+                break
+            }
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else { return }
+        guard !navigationController.viewControllers.contains(fromViewController) else { return }
+        
+        if let buyViewController = fromViewController as? SettingsViewController {
+            childDidFinish(buyViewController.coordinator)
+        }
+    }
+    
 }
