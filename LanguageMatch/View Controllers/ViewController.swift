@@ -16,7 +16,9 @@ extension UIView {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
     
     var currentLanguageBtn: UIButton!
     var timedPlayBtn: UIButton!
@@ -169,54 +171,42 @@ class ViewController: UIViewController {
     }
     
     @objc func selectLanguage() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "languages") as? LanguageSelectViewController {
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let delegate = self
+        coordinator?.showSelectLanguage(with: delegate)
     }
     
     @objc func timedPlayTapped(_ sender: UIButton) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "game") as? GameViewController {
-            vc.playMode = "timed"
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let delgate = self
+        let gameType = "timed"
+        coordinator?.showGameController(with: delgate, for: gameType)
     }
     
     @objc func singlePlayerTapped(_ sender: UIButton) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "game") as? GameViewController {
-            vc.playMode = "single"
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let delgate = self
+        let gameType = "single"
+        coordinator?.showGameController(with: delgate, for: gameType)
     }
     
     @objc func twoPlayerTapped(_ sender: UIButton) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "game") as? GameViewController {
-            vc.playMode = "two"
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let delgate = self
+        let gameType = "two"
+        coordinator?.showGameController(with: delgate, for: gameType)
     }
     
     @objc func studyWordsTapped(_ sender: UIButton) {
         // Would like to add functionality for smaller devices. Need to make collection view cells non-static sizes
-        if view.bounds.size.width < 375 {
+        if UIScreen.main.bounds.size.width < 375 {
             let ac = UIAlertController(title: "Error", message: "This device does not support this functionality.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(ac, animated: true)
         } else {
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "study") as? StudyViewController {
-                vc.delegate = self
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            let delegate = self
+            coordinator?.showStudyWords(with: delegate)
         }
     }
     
     @objc func settingsTapped() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "settings") as? SettingsViewController {
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let delegate = self
+        coordinator?.showSettings(with: delegate)
     }
 }

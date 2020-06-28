@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, Storyboarded {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var cardButtons: [UIButton]!

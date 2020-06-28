@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oYZ-Xh-1aN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Flingo Match-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
         <!--Language Select View Controller-->
         <scene sceneID="1cp-1w-u3P">
             <objects>
-                <tableViewController storyboardIdentifier="languages" id="8tw-PG-8fc" customClass="LanguageSelectViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LanguageSelectViewController" id="8tw-PG-8fc" customClass="LanguageSelectViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dz0-BN-UL8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
         <!--Study View Controller-->
         <scene sceneID="98x-WH-YNr">
             <objects>
-                <collectionViewController storyboardIdentifier="study" id="v2e-zp-P2J" customClass="StudyViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="StudyViewController" id="v2e-zp-P2J" customClass="StudyViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="EtY-pJ-Q5L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
         <!--Settings View Controller-->
         <scene sceneID="SR8-Wb-CGk">
             <objects>
-                <tableViewController storyboardIdentifier="settings" id="AH2-b2-Hka" customClass="SettingsViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" id="AH2-b2-Hka" customClass="SettingsViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x6a-q2-mVB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,28 +136,10 @@
             </objects>
             <point key="canvasLocation" x="2996" y="116"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MyM-CK-13n">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oYZ-Xh-1aN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iT0-QO-iZy">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2cn-qd-DCr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W7d-en-6E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="390" y="116"/>
-        </scene>
         <!--Acknowledgements View Controller-->
         <scene sceneID="kCr-Im-9Mo">
             <objects>
-                <viewController storyboardIdentifier="Acknowledgements" id="ZFO-e4-PJj" customClass="AcknowledgementsViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AcknowledgementsViewController" id="ZFO-e4-PJj" customClass="AcknowledgementsViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bxT-QN-M3B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +184,7 @@
         <!--Game View Controller-->
         <scene sceneID="yJP-3N-jSD">
             <objects>
-                <viewController storyboardIdentifier="game" id="Csc-xB-tnY" customClass="GameViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="Csc-xB-tnY" customClass="GameViewController" customModule="LanguageMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kw-Jr-PDU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

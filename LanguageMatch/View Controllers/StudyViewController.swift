@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StudyViewController: UICollectionViewController {
+class StudyViewController: UICollectionViewController, Storyboarded {
     
     var words = [String]()
     weak var delegate: ViewController!

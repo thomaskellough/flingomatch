@@ -28,11 +28,13 @@ extension UIViewController {
     }
 }
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, Storyboarded {
+    
+    
+    weak var coordinator: SettingsCoordinator?
+    weak var delegate: ViewController!
     
     var settingsList = ["Default Language", "Tell a Friend!", "Write a Review!", "Hard Mode", "Acknowledgements"]
-    
-    weak var delegate: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +99,7 @@ class SettingsViewController: UITableViewController {
     }
     
     func acknowledgementsTapped() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Acknowledgements") as? AcknowledgementsViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        coordinator?.showAcknowledgements()
     }
     
     func defaultLanguagesTapped() {

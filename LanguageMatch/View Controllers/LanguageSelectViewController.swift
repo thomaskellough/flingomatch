@@ -8,9 +8,11 @@
 
 import UIKit
 
-class LanguageSelectViewController: UITableViewController {
+class LanguageSelectViewController: UITableViewController, Storyboarded {
     
+    weak var coordinator: MainCoordinator?
     weak var delegate: ViewController!
+    
     var languages: [String] = []
     var flags: Flags!
 

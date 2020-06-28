@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AcknowledgementsViewController: UIViewController {
+class AcknowledgementsViewController: UIViewController, Storyboarded {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var label: UILabel!
