@@ -28,7 +28,6 @@ class GameViewController: UIViewController, Storyboarded {
     var tag2 = 0
     var word1: String!
     var word2: String!
-    weak var delegate: ViewController!
     
     // Both these variables are used for unit testing only
     var englishFlags: Int = 0
@@ -78,7 +77,7 @@ class GameViewController: UIViewController, Storyboarded {
     
     func loadTimedPlayLabels() {
         gameTitleLabel.text = "Time left: 60s"
-        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
+        gameTitleLabel.textColor = ViewController.currentLanguage.colorPrimary
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeLeft), userInfo: nil, repeats: true)
         playerOneScoreLabel.text = nil
         playerTwoScoreLabel.text = nil
@@ -95,34 +94,34 @@ class GameViewController: UIViewController, Storyboarded {
     
     func loadSinglePlayerLabels() {
         gameTitleLabel.text = "Flips: 0"
-        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
+        gameTitleLabel.textColor = ViewController.currentLanguage.colorPrimary
         playerOneScoreLabel.text = nil
         playerTwoScoreLabel.text = nil
     }
     
     func loadTwoPlayerLabels() {
         gameTitleLabel.text = "Turn: Player 1"
-        gameTitleLabel.textColor = delegate.currentLanguage.colorPrimary
+        gameTitleLabel.textColor = ViewController.currentLanguage.colorPrimary
         playerOneScoreLabel.text = "P1: 0"
-        playerOneScoreLabel.textColor = delegate.currentLanguage.colorPrimary
+        playerOneScoreLabel.textColor = ViewController.currentLanguage.colorPrimary
         playerTwoScoreLabel.text = "P2: 0"
-        playerTwoScoreLabel.textColor = delegate.currentLanguage.colorPrimary
+        playerTwoScoreLabel.textColor = ViewController.currentLanguage.colorPrimary
     }
     
     func loadImages(language: String) {
         imageFlagIcon1 = UIImage(named: "iconAmerica")
-        imageFlagIcon2 = delegate.currentLanguage.flag
+        imageFlagIcon2 = ViewController.currentLanguage.flag
         imageIcon = UIImage(named: "iconTransparent256.png")
     }
     
     // Function all play modes share
     @objc func loadGame() {
-        mainView.backgroundColor = delegate.currentLanguage.colorSecondary
-        loadImages(language: delegate.currentLanguage.name)
+        mainView.backgroundColor = ViewController.currentLanguage.colorSecondary
+        loadImages(language: ViewController.currentLanguage.name)
         setsWon = 0
         time = 60
         randomWords = randomSets()
-        guard let englishWords = delegate.currentLanguage.englishWords else { return }
+        guard let englishWords = ViewController.currentLanguage.englishWords else { return }
 
         assert(!randomWords.isEmpty, "Error: Random words are empty. Please check randomSets function to determine reason for early return.")
         assert(englishWords.count > 9, "Error: Could only load \(englishWords.count) english words when we need at least 9.")
@@ -138,8 +137,8 @@ class GameViewController: UIViewController, Storyboarded {
         // TODO: Add support for landscape mode.
         for btn in cardButtons {
             btn.addTarget(self, action: #selector(wordTapped), for: .touchUpInside)
-            btn.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
-            if delegate.hardMode! {
+            btn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+            if ViewController.hardMode! {
                 btn.setImage(imageIcon, for: .normal)
             } else {
                 if englishWords.contains(randomWords[btn.tag - 1]) {
@@ -151,12 +150,12 @@ class GameViewController: UIViewController, Storyboarded {
                 }
             }
             
-            btn.backgroundColor = delegate.currentLanguage.colorPrimary
+            btn.backgroundColor = ViewController.currentLanguage.colorPrimary
             btn.imageView?.contentMode = .scaleToFill
-            btn.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
+            btn.layer.borderColor = ViewController.currentLanguage.colorTertiary?.cgColor
             btn.layer.borderWidth = 1
             btn.layer.cornerRadius = 5
-            btn.layer.shadowColor = delegate.currentLanguage.colorPrimary?.cgColor
+            btn.layer.shadowColor = ViewController.currentLanguage.colorPrimary?.cgColor
             btn.layer.shadowOffset = CGSize(width: 1, height: 1)
             btn.layer.shadowOpacity = 0.8
             btn.layer.shadowRadius = 2
@@ -176,7 +175,7 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     func randomSets() -> [String] {
-        guard var pairs = delegate.currentLanguage.pairs else { return [] }
+        guard var pairs = ViewController.currentLanguage.pairs else { return [] }
         var randomPairs = [Pair]()
         var randomWords = [String]()
         
@@ -200,9 +199,9 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     func flip(_ button: UIButton, _ tag: Int) {
-        button.backgroundColor = delegate.currentLanguage.colorTertiary
-        button.layer.borderColor = delegate.currentLanguage.colorPrimary?.cgColor
-        button.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
+        button.backgroundColor = ViewController.currentLanguage.colorTertiary
+        button.layer.borderColor = ViewController.currentLanguage.colorPrimary?.cgColor
+        button.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromTop]
         UIView.transition(with: button, duration: 1.0, options: transitionOptions, animations: {
             button.setImage(nil, for: .normal)
@@ -211,13 +210,13 @@ class GameViewController: UIViewController, Storyboarded {
     }
     
     func flipBack(_ button: UIButton) {
-        guard let englishWords = delegate.currentLanguage.englishWords else { return }
-        button.backgroundColor = delegate.currentLanguage.colorPrimary
-        button.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
-        button.setTitleColor(delegate.currentLanguage.colorSecondary, for: .normal)
+        guard let englishWords = ViewController.currentLanguage.englishWords else { return }
+        button.backgroundColor = ViewController.currentLanguage.colorPrimary
+        button.layer.borderColor = ViewController.currentLanguage.colorTertiary?.cgColor
+        button.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromBottom]
         UIView.transition(with: button, duration: 1.0, options: transitionOptions, animations: {
-            if self.delegate.hardMode! {
+            if ViewController.hardMode! {
                 button.setBackgroundImage(self.imageIcon, for: .normal)
             } else {
                 if englishWords.contains(self.randomWords[button.tag - 1]) {

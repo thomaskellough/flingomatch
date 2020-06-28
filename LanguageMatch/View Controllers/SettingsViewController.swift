@@ -32,13 +32,13 @@ class SettingsViewController: UITableViewController, Storyboarded {
     
     
     weak var coordinator: SettingsCoordinator?
-    weak var delegate: ViewController!
     
     var settingsList = ["Default Language", "Tell a Friend!", "Write a Review!", "Hard Mode", "Acknowledgements"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = ViewController.currentLanguage.colorSecondary
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,11 +48,11 @@ class SettingsViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.backgroundColor = delegate.currentLanguage.colorSecondary
+        cell.backgroundColor = ViewController.currentLanguage.colorSecondary
         cell.layer.cornerRadius = 5
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         cell.textLabel?.text = settingsList[indexPath.row]
-        cell.textLabel?.textColor = delegate.currentLanguage.colorPrimary
+        cell.textLabel?.textColor = ViewController.currentLanguage.colorPrimary
         
         if cell.textLabel?.text == "Hard Mode" {
             let switchView = UISwitch(frame: .zero)
@@ -74,12 +74,12 @@ class SettingsViewController: UITableViewController, Storyboarded {
             UserDefaults.standard.set(false, forKey: "switchState")
         }
         
-        delegate.updateHardMode()
+        ViewController.updateHardMode()
     }
     
     func save(language: String) {
         let defaults = UserDefaults.standard
-        defaults.set(language, forKey: "language")
+        defaults.set(language, forKey: ViewController.defaultLanguageKey)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -109,8 +109,9 @@ class SettingsViewController: UITableViewController, Storyboarded {
         let ac = UIAlertController(title: "Pick a language", message: nil, preferredStyle: .actionSheet)
         for language in languages {
             ac.addAction(UIAlertAction(title: language, style: .default, handler: { [unowned self] _ in
-                self.delegate.updateCurrentLanguage(language: language)
+                ViewController.updateCurrentLanguage(language: language)
                 self.save(language: language)
+                self.view.backgroundColor = ViewController.currentLanguage.colorSecondary
                 self.tableView.reloadData()
             }))
         }

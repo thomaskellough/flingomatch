@@ -21,10 +21,9 @@ class SettingsCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start(with delegate: ViewController?) {
+    func start() {
         let vc = SettingsViewController.instantiate()
         vc.coordinator = self
-        vc.delegate = delegate
         navigationController.pushViewController(vc, animated: true)
     }
     

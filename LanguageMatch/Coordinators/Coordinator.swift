@@ -12,5 +12,5 @@ import UIKit
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
     var children: [Coordinator] { get set }
-    func start(with delegate: ViewController?)
+    func start()
 }

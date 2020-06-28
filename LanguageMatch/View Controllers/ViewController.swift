@@ -19,15 +19,16 @@ extension UIView {
 class ViewController: UIViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
+    static var defaultLanguageKey = "language"
     
+    static var currentLanguage: Language!
+    static var hardMode: Bool?
     var currentLanguageBtn: UIButton!
     var timedPlayBtn: UIButton!
     var singlePlayerBtn: UIButton!
     var twoPlayerBtn: UIButton!
     var studyBtn: UIButton!
     var settingsBtn: UIButton!
-    var currentLanguage: Language!
-    var hardMode: Bool?
     var currentDevice: String!
     var currentScreenWidth: CGFloat!
     var flagSize: CGSize!
@@ -36,18 +37,18 @@ class ViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         let defaults = UserDefaults.standard
-        let defaultLanguage = defaults.object(forKey: "language") as? String ?? "French"
-        currentLanguage = Language(name: defaultLanguage)
-        updateCurrentLanguage(language: currentLanguage.name)
-        updateHardMode()
+        let defaultLanguage = defaults.object(forKey: ViewController.defaultLanguageKey) as? String ?? "French"
+        ViewController.currentLanguage = Language(name: defaultLanguage)
+        ViewController.updateCurrentLanguage(language: ViewController.currentLanguage.name)
+        ViewController.updateHardMode()
         
         performSelector(onMainThread: #selector(loadInterface), with: nil, waitUntilDone: false)
         
     }
     
-    func updateHardMode() {
+    static func updateHardMode() {
         let defaults = UserDefaults.standard
-        hardMode = defaults.bool(forKey: "switchState")
+        ViewController.hardMode = defaults.bool(forKey: "switchState")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,44 +56,44 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     @objc func updateLanguage() {
-        view.backgroundColor = currentLanguage.colorSecondary
-        title = "Flingo Match - \(currentLanguage.name)"
+        view.backgroundColor = ViewController.currentLanguage.colorSecondary
+        title = "Flingo Match - \(ViewController.currentLanguage.name)"
         
-        currentLanguageBtn.backgroundColor = currentLanguage.colorPrimary
-        currentLanguageBtn.setBackgroundImage(currentLanguage.flag, for: .normal)
+        currentLanguageBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        currentLanguageBtn.setBackgroundImage(ViewController.currentLanguage.flag, for: .normal)
         
-        timedPlayBtn.backgroundColor = currentLanguage.colorPrimary
-        timedPlayBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        timedPlayBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        timedPlayBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        timedPlayBtn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        timedPlayBtn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
         
-        singlePlayerBtn.backgroundColor = currentLanguage.colorPrimary
-        singlePlayerBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        singlePlayerBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        singlePlayerBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        singlePlayerBtn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        singlePlayerBtn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
         
-        twoPlayerBtn.backgroundColor = currentLanguage.colorPrimary
-        twoPlayerBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        twoPlayerBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        twoPlayerBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        twoPlayerBtn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        twoPlayerBtn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
         
-        studyBtn.backgroundColor = currentLanguage.colorPrimary
-        studyBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        studyBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        studyBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        studyBtn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        studyBtn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
         
-        settingsBtn.backgroundColor = currentLanguage.colorPrimary
-        settingsBtn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        settingsBtn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        settingsBtn.backgroundColor = ViewController.currentLanguage.colorPrimary
+        settingsBtn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        settingsBtn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
     }
     
-    func updateCurrentLanguage(language: String) {
-        currentLanguage = Language(name: language)
+    static func updateCurrentLanguage(language: String) {
+        ViewController.currentLanguage = Language(name: language)
     }
     
     func styleButton(_ btn: UIButton) {
         btn.center.x = view.center.x
         
-        btn.backgroundColor = currentLanguage.colorPrimary
+        btn.backgroundColor = ViewController.currentLanguage.colorPrimary
         btn.contentHorizontalAlignment = .left
         
-        btn.layer.borderColor = currentLanguage.colorTertiary?.cgColor
+        btn.layer.borderColor = ViewController.currentLanguage.colorTertiary?.cgColor
         btn.layer.borderWidth = 2
         btn.layer.cornerRadius = 10
         btn.layer.masksToBounds = true
@@ -107,12 +108,12 @@ class ViewController: UIViewController, Storyboarded {
         btn.titleLabel?.layer.shadowOpacity = 0.8
         btn.titleLabel?.layer.shadowRadius = 5
         
-        btn.setTitleColor(currentLanguage.colorSecondary, for: .normal)
-        btn.setTitleColor(currentLanguage.colorTertiary, for: .highlighted)
+        btn.setTitleColor(ViewController.currentLanguage.colorSecondary, for: .normal)
+        btn.setTitleColor(ViewController.currentLanguage.colorTertiary, for: .highlighted)
     }
     
     @objc func loadInterface() {
-        view.backgroundColor = currentLanguage.colorPrimary
+        view.backgroundColor = ViewController.currentLanguage.colorPrimary
         
         let height = view.bounds.size.height / 8
         let width = view.bounds.width - 20
@@ -120,7 +121,7 @@ class ViewController: UIViewController, Storyboarded {
         
         currentLanguageBtn = UIButton(frame: CGRect(x: 0, y: height + gap, width: width, height: height))
         currentLanguageBtn.addTarget(self, action: #selector(selectLanguage), for: .touchUpInside)
-        currentLanguageBtn.setBackgroundImage(currentLanguage.flag, for: .normal)
+        currentLanguageBtn.setBackgroundImage(ViewController.currentLanguage.flag, for: .normal)
         styleButton(currentLanguageBtn)
         view.addSubview(currentLanguageBtn)
         gap += CGFloat(10)
@@ -171,26 +172,22 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     @objc func selectLanguage() {
-        let delegate = self
-        coordinator?.showSelectLanguage(with: delegate)
+        coordinator?.showSelectLanguage()
     }
     
     @objc func timedPlayTapped(_ sender: UIButton) {
-        let delgate = self
         let gameType = "timed"
-        coordinator?.showGameController(with: delgate, for: gameType)
+        coordinator?.showGameController(for: gameType)
     }
     
     @objc func singlePlayerTapped(_ sender: UIButton) {
-        let delgate = self
         let gameType = "single"
-        coordinator?.showGameController(with: delgate, for: gameType)
+        coordinator?.showGameController(for: gameType)
     }
     
     @objc func twoPlayerTapped(_ sender: UIButton) {
-        let delgate = self
         let gameType = "two"
-        coordinator?.showGameController(with: delgate, for: gameType)
+        coordinator?.showGameController(for: gameType)
     }
     
     @objc func studyWordsTapped(_ sender: UIButton) {
@@ -200,13 +197,11 @@ class ViewController: UIViewController, Storyboarded {
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(ac, animated: true)
         } else {
-            let delegate = self
-            coordinator?.showStudyWords(with: delegate)
+            coordinator?.showStudyWords()
         }
     }
     
     @objc func settingsTapped() {
-        let delegate = self
-        coordinator?.showSettings(with: delegate)
+        coordinator?.showSettings()
     }
 }

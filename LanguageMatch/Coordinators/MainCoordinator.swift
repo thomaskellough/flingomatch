@@ -18,36 +18,33 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         self.navigationController = navigationController
     }
     
-    func start(with delegate: ViewController?) {
+    func start() {
         let vc = ViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showSelectLanguage(with delegate: ViewController) {
+    func showSelectLanguage() {
         let vc = LanguageSelectViewController.instantiate()
-        vc.delegate = delegate
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showGameController(with delegate: ViewController, for typeOfGame: String) {
+    func showGameController(for typeOfGame: String) {
         let vc = GameViewController.instantiate()
         vc.playMode = typeOfGame
-        vc.delegate = delegate
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showStudyWords(with delegate: ViewController) {
+    func showStudyWords() {
         let vc = StudyViewController.instantiate()
-        vc.delegate = delegate
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showSettings(with delegate: ViewController) {
+    func showSettings() {
         let child = SettingsCoordinator(navigationController: navigationController)
         children.append(child)
-        child.start(with: delegate)
+        child.start()
     }
     
     func childDidFinish(_ child: Coordinator?) {

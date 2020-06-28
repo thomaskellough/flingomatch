@@ -11,7 +11,6 @@ import UIKit
 class LanguageSelectViewController: UITableViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
-    weak var delegate: ViewController!
     
     var languages: [String] = []
     var flags: Flags!
@@ -23,7 +22,7 @@ class LanguageSelectViewController: UITableViewController, Storyboarded {
         languages = getLanguages()
         
         tableView.rowHeight = 80
-        view.backgroundColor = delegate.currentLanguage.colorSecondary
+        view.backgroundColor = ViewController.currentLanguage.colorSecondary
     }
     
     func getLanguages() -> [String] {
@@ -49,27 +48,27 @@ class LanguageSelectViewController: UITableViewController, Storyboarded {
         let language = languages[indexPath.row]
         let image = flags.renderFlag(language: language)
         
-        if delegate.currentLanguage.name == language {
+        if ViewController.currentLanguage.name == language {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
         }
 
-        cell.backgroundColor = delegate.currentLanguage.colorSecondary
+        cell.backgroundColor = ViewController.currentLanguage.colorSecondary
         cell.layer.cornerRadius = 5
         cell.imageView?.center = cell.center
         cell.imageView?.image = image
         cell.textLabel?.text = language
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
-        cell.textLabel?.textColor = delegate.currentLanguage.colorPrimary
+        cell.textLabel?.textColor = ViewController.currentLanguage.colorPrimary
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let language = languages[indexPath.row]
-        delegate?.updateCurrentLanguage(language: language)
-        view.backgroundColor = delegate.currentLanguage.colorSecondary
+        ViewController.updateCurrentLanguage(language: language)
+        view.backgroundColor = ViewController.currentLanguage.colorSecondary
         self.tableView.reloadData()
     }
 }

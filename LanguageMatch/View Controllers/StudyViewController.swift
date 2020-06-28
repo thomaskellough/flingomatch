@@ -11,7 +11,6 @@ import UIKit
 class StudyViewController: UICollectionViewController, Storyboarded {
     
     var words = [String]()
-    weak var delegate: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +18,14 @@ class StudyViewController: UICollectionViewController, Storyboarded {
         // possible addition to create custom decks
         // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWords))
         
-        collectionView.backgroundColor = delegate.currentLanguage.colorSecondary
+        collectionView.backgroundColor = ViewController.currentLanguage.colorSecondary
         
         loadWordsToList()
     }
     
     func loadWordsToList() {
         words.removeAll()
-        guard let pairs = delegate.currentLanguage.pairs else { return }
+        guard let pairs = ViewController.currentLanguage.pairs else { return }
         for pair in pairs {
             guard let wordOne = pair.wordOne else { return }
             guard let wordTwo = pair.wordTwo else { return }
@@ -66,15 +65,15 @@ class StudyViewController: UICollectionViewController, Storyboarded {
         }
         
         cell.label.adjustsFontSizeToFitWidth = true
-        cell.label.backgroundColor = delegate.currentLanguage.colorPrimary
+        cell.label.backgroundColor = ViewController.currentLanguage.colorPrimary
         cell.label.font = UIFont.preferredFont(forTextStyle: .body)
         cell.label.numberOfLines = 0
         cell.label.text = words[indexPath.row]
         cell.label.textAlignment = .center
-        cell.label.textColor = delegate.currentLanguage.colorSecondary
+        cell.label.textColor = ViewController.currentLanguage.colorSecondary
         
-        cell.layer.backgroundColor = delegate.currentLanguage.colorPrimary?.cgColor
-        cell.layer.borderColor = delegate.currentLanguage.colorTertiary?.cgColor
+        cell.layer.backgroundColor = ViewController.currentLanguage.colorPrimary?.cgColor
+        cell.layer.borderColor = ViewController.currentLanguage.colorTertiary?.cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 5
         
