@@ -44,6 +44,7 @@
 		BC052EDA24A03BD700AF7FF6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC052ED924A03BD700AF7FF6 /* MainCoordinator.swift */; };
 		BC052EDC24A04BB100AF7FF6 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC052EDB24A04BB100AF7FF6 /* Storyboarded.swift */; };
 		BC0BD38324A8402000026252 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD38224A8402000026252 /* SettingsCoordinator.swift */; };
+		BC0BD38824A9289C00026252 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD38724A9289C00026252 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		BC052ED924A03BD700AF7FF6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BC052EDB24A04BB100AF7FF6 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BC0BD38224A8402000026252 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		BC0BD38724A9289C00026252 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		24AD899C22F4C75500A1C1B7 /* LanguageMatch */ = {
 			isa = PBXGroup;
 			children = (
+				BC0BD38624A9286D00026252 /* Views */,
 				BC052ED624A03B9600AF7FF6 /* Coordinators */,
 				BC052ED0249F05A100AF7FF6 /* Extensions */,
 				BC75F8BD249EFF5400B73A4A /* Models */,
@@ -238,6 +241,14 @@
 				BC0BD38224A8402000026252 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		BC0BD38624A9286D00026252 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC0BD38724A9289C00026252 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BC75F8BC249EEB7800B73A4A /* View Controllers */ = {
@@ -421,6 +432,7 @@
 				24AD89CA22F5167700A1C1B7 /* CollectionViewCell.swift in Sources */,
 				BC0BD38324A8402000026252 /* SettingsCoordinator.swift in Sources */,
 				24AD89B022F4DA0400A1C1B7 /* Pair.swift in Sources */,
+				BC0BD38824A9289C00026252 /* MainView.swift in Sources */,
 				24AD89CE22F51E2F00A1C1B7 /* AcknowledgementsViewController.swift in Sources */,
 				24AD89C822F5156A00A1C1B7 /* StudyViewController.swift in Sources */,
 				24AD89C222F4F1FD00A1C1B7 /* Flags.swift in Sources */,
