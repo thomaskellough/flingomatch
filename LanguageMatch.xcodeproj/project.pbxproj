@@ -45,6 +45,8 @@
 		BC052EDC24A04BB100AF7FF6 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC052EDB24A04BB100AF7FF6 /* Storyboarded.swift */; };
 		BC0BD38324A8402000026252 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD38224A8402000026252 /* SettingsCoordinator.swift */; };
 		BC0BD38824A9289C00026252 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD38724A9289C00026252 /* MainView.swift */; };
+		BC45C7DB24AC1D1F00E0DE7A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C7DA24AC1D1E00E0DE7A /* UIViewExtensions.swift */; };
+		BC45C7DD24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C7DC24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		BC052EDB24A04BB100AF7FF6 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BC0BD38224A8402000026252 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		BC0BD38724A9289C00026252 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BC45C7DA24AC1D1E00E0DE7A /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		BC45C7DC24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				BC052ED1249F05D800AF7FF6 /* UIColorExtensions.swift */,
+				BC45C7DA24AC1D1E00E0DE7A /* UIViewExtensions.swift */,
+				BC45C7DC24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				BC052ED824A03BA800AF7FF6 /* Coordinator.swift in Sources */,
 				24AD899E22F4C75500A1C1B7 /* AppDelegate.swift in Sources */,
 				BC052ED2249F05D800AF7FF6 /* UIColorExtensions.swift in Sources */,
+				BC45C7DD24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift in Sources */,
 				24EFDDA5242FAA7B00C6DC14 /* Language.swift in Sources */,
 				24AD89CA22F5167700A1C1B7 /* CollectionViewCell.swift in Sources */,
 				BC0BD38324A8402000026252 /* SettingsCoordinator.swift in Sources */,
@@ -437,6 +444,7 @@
 				24AD89C822F5156A00A1C1B7 /* StudyViewController.swift in Sources */,
 				24AD89C222F4F1FD00A1C1B7 /* Flags.swift in Sources */,
 				24AD89D222F5BC5500A1C1B7 /* GameViewController.swift in Sources */,
+				BC45C7DB24AC1D1F00E0DE7A /* UIViewExtensions.swift in Sources */,
 				24AD89CC22F51D5A00A1C1B7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
