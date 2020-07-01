@@ -67,6 +67,7 @@ class LanguageSelectViewController: UITableViewController, Storyboarded {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let language = languages[indexPath.row]
+        UserDefaults.standard.setValue(language, forKey: ViewController.defaultLanguageKey)
         ViewController.updateCurrentLanguage(language: language)
         view.backgroundColor = ViewController.currentLanguage.colorSecondary
         self.tableView.reloadData()
