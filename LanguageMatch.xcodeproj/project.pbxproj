@@ -47,6 +47,7 @@
 		BC0BD38824A9289C00026252 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD38724A9289C00026252 /* MainView.swift */; };
 		BC45C7DB24AC1D1F00E0DE7A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C7DA24AC1D1E00E0DE7A /* UIViewExtensions.swift */; };
 		BC45C7DD24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45C7DC24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift */; };
+		BC45C7E324AC2A9400E0DE7A /* default-portrait-2688h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC45C7E224AC2A9400E0DE7A /* default-portrait-2688h@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		BC0BD38724A9289C00026252 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BC45C7DA24AC1D1E00E0DE7A /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		BC45C7DC24AC1D7F00E0DE7A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		BC45C7E224AC2A9400E0DE7A /* default-portrait-2688h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-portrait-2688h@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		24EFDD99242FA66100C6DC14 /* contentImages */ = {
 			isa = PBXGroup;
 			children = (
+				BC45C7E224AC2A9400E0DE7A /* default-portrait-2688h@3x.png */,
 				24859B68243566890072B5B2 /* flagFrench.png */,
 				24AD89FB22F7864A00A1C1B7 /* iconAmerica.png */,
 				24AD89F922F769CD00A1C1B7 /* iconFrench.png */,
@@ -391,6 +394,7 @@
 				24AD89B922F4F12D00A1C1B7 /* study.png in Resources */,
 				247DF554243434F6000A5A47 /* iconTransparent256.png in Resources */,
 				247DF5522434337C000A5A47 /* iconTransparent.png in Resources */,
+				BC45C7E324AC2A9400E0DE7A /* default-portrait-2688h@3x.png in Resources */,
 				24AD89A522F4C76D00A1C1B7 /* Assets.xcassets in Resources */,
 				24AD89BC22F4F12D00A1C1B7 /* timed.png in Resources */,
 				24AD89BE22F4F12D00A1C1B7 /* settings.png in Resources */,
