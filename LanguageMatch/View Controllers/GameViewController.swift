@@ -217,7 +217,7 @@ class GameViewController: UIViewController, Storyboarded {
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromBottom]
         UIView.transition(with: button, duration: 1.0, options: transitionOptions, animations: {
             if ViewController.hardMode! {
-                button.setBackgroundImage(self.imageIcon, for: .normal)
+                button.setImage(self.imageIcon, for: .normal)
             } else {
                 if englishWords.contains(self.randomWords[button.tag - 1]) {
                     button.setImage(self.imageFlagIcon1, for: .normal)
